@@ -13,8 +13,8 @@ const schema = a.schema({
     temperature: a.float(),
     humidity: a.float(),
     deviceId: a.string(),
-    creadtedAt: a.timestamp().required(),
-    updatedAt: a.timestamp().required(),
+    creadtedAt: a.timestamp(),
+    updatedAt: a.timestamp(),
   })
     .authorization((allow) => [allow.publicApiKey()]),
 });
