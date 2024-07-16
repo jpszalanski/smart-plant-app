@@ -27,21 +27,21 @@ const SmartPlantData = () => {
                 <thead>
                     <tr>
                         <th>Device ID</th>
-                        <th>Light</th>
-                        <th>Soil Moisture</th>
-                        <th>Temperature</th>
-                        <th>Humidity</th>
-                        <th>Updated At</th>
+                        <th>Luminosidade</th>
+                        <th>Humidade Solo</th>
+                        <th>Temperatura</th>
+                        <th>Humidade</th>
+                        <th>Atualizado</th>
                     </tr>
                 </thead>
                 <tbody>
                     {smartPlantData.map((device) => (
                         <tr key={device.deviceId}>
                             <td>{device.deviceId}</td>
-                            <td>{device.light}</td>
-                            <td>{device.soilMoisture}</td>
-                            <td>{device.temperature}</td>
-                            <td>{device.humidity}</td>
+                            <td>{device.light}lux</td>
+                            <td>{device.soilMoisture}%</td>
+                            <td>{device.temperature}°C</td>
+                            <td>{device.humidity}%</td>
                             <td>{device.updatedAt}</td>
                         </tr>
                     ))}
