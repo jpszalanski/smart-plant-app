@@ -14,7 +14,7 @@ const schema = a.schema({
     humidity: a.float(),
     deviceId: a.string(),
   })
-    .authorization((allow) => [allow.owner()]),
+    .authorization((allow) => [allow.guest()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -25,6 +25,7 @@ export const data = defineData({
     //defaultAuthorizationMode: "apiKey",
     defaultAuthorizationMode: 'userPool',
     // API Key is used for a.allow.public() rules
+
     apiKeyAuthorizationMode: {
       expiresInDays: 30,
     },
