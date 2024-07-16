@@ -7,26 +7,26 @@ import '@aws-amplify/ui-react/styles.css'
 const client = generateClient<Schema>();
 
 function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const [smartPlantPotData, setSmartPlantPotdata] = useState<Array<Schema["SmartPlantPotData"]["type"]>>([]);
 
 
   function deleteTodo(id: string) {
-    client.models.Todo.delete({ id })
+    client.models.SmartPlantPotData.delete({ id })
   }
 
   useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
+    client.models.SmartPlantPotData.observeQuery().subscribe({
+      next: (data) => setSmartPlantPotdata([...data.items]),
     });
   }, []);
-
-  function createTodo() {
-    client.models.Todo.create({
-      content: "Todo content",
-      isDone: true,
-    });
-  }
-
+  /*
+    function createTodo() {
+      client.models.SmartPlantPotData.create({
+        content: "Todo content",
+        isDone: true,
+      });
+    }
+  */
   return (
 
     <Authenticator>
@@ -34,12 +34,12 @@ function App() {
         <main>
           <h1>{user?.signInDetails?.loginId}'s todos</h1>
           <h1>My todos</h1>
-          <button onClick={createTodo}>+ new</button>
+
           <ul>
-            {todos.map((todo) => <li
-              onClick={() => deleteTodo(todo.id)}
-              key={todo.id}>
-              {todo.content}
+            {smartPlantPotData.map((plant) => <li
+              onClick={() => deleteTodo(plant.id)}
+              key={plant.id}>
+              {plant.deviceId}
             </li>)}
           </ul>
 
