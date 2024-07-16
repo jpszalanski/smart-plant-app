@@ -13,6 +13,7 @@ function App() {
   const fetchSensorData = async () => {
     const { data: items, errors } = await client.models.SmartPlantData.list();
     setSmartPlantData(items);
+    console.log(errors);
   };
 
 
