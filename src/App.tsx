@@ -14,9 +14,11 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <main>
-          <h1>Olá, {user?.signInDetails?.loginId}</h1>
-          <SmartPlantData />
-          <button onClick={signOut}>Sign out</button>
+          <td><h2>Olá, {user?.signInDetails?.loginId}</h2></td>
+          <td><button onClick={signOut}>Sign out</button></td>
+
+          <th> <SmartPlantData /></th>
+
         </main>
       )}
     </Authenticator>

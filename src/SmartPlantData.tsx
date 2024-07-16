@@ -38,7 +38,7 @@ const SmartPlantData = () => {
                     {smartPlantData.map((device) => (
                         <tr key={device.deviceId}>
                             <td>{device.deviceId}</td>
-                            <td>{device.light}lux</td>
+                            <td>{device.light} lux</td>
                             <td>{device.soilMoisture}%</td>
                             <td>{device.temperature}°C</td>
                             <td>{device.humidity}%</td>
