@@ -2,14 +2,14 @@
 //import type { Schema } from "../amplify/data/resource";
 //import { generateClient } from "aws-amplify/data";
 import { Authenticator } from '@aws-amplify/ui-react';
-import { components } from './CustomAuthenticator'; // Import custom components and form fields
+import CustomAuthenticator from './CustomAuthenticator'; // Import custom components and form fields
 import SmartPlantData from './SmartPlantData';
 import './App.css';
 import '@aws-amplify/ui-react/styles.css'
 
 function App() {
   return (
-    <Authenticator components={components}>
+    <Authenticator components={CustomAuthenticator}>
       {({ signOut, user }) => (
         <main>
           <td><h2>Olá, {user?.signInDetails?.loginId}</h2></td>
