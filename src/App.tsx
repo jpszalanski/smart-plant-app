@@ -4,6 +4,10 @@
 import { Authenticator } from '@aws-amplify/ui-react'
 import SmartPlantData from './SmartPlantData';
 import '@aws-amplify/ui-react/styles.css'
+import { I18n } from 'aws-amplify/utils';
+import { translations } from '@aws-amplify/ui-react';
+I18n.putVocabularies(translations);
+I18n.setLanguage('pt');
 
 //const client = generateClient<Schema>();
 
