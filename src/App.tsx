@@ -9,28 +9,23 @@ const client = generateClient<Schema>();
 function App() {
   const [smartPlantData, setSmartPlantData] = useState<Array<Schema["SmartPlantData"]["type"]>>([]);
 
-  /*
-    function deleteTodo(id: string) {
-      client.models.SmartPlantData.delete({ id })
-    }
-      */
-  function SensorData() {
-    client.models.SmartPlantData.list(),
+
+
+  function deleteTodo(id: string) {
+    client.models.SmartPlantData.delete({ id })
   }
 
+  const fetchSensorData = async () => {
+    const { data: items, errors } = await client.models.SmartPlantData.list();
+    setSmartPlantData(items);
+  };
+
+
   useEffect(() => {
-    client.models.SmartPlantData.observeQuery().subscribe({
-      next: (data) => setSmartPlantData([...data.items]),
-    });
+    fetchSensorData();
   }, []);
-  /*
-    function createTodo() {
-      client.models.SmartPlantPotData.create({
-        content: "Todo content",
-        isDone: true,
-      });
-    }
-  */
+
+
   return (
     <Authenticator>
       {({ signOut, user }) => (
