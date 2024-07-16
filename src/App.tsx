@@ -7,16 +7,16 @@ import '@aws-amplify/ui-react/styles.css'
 const client = generateClient<Schema>();
 
 function App() {
-  const [smartPlantPotData, setSmartPlantPotdata] = useState<Array<Schema["SmartPlantPotData"]["type"]>>([]);
+  const [smartPlantData, setSmartPlantData] = useState<Array<Schema["SmartPlantData"]["type"]>>([]);
 
 
   function deleteTodo(id: string) {
-    client.models.SmartPlantPotData.delete({ id })
+    client.models.SmartPlantData.delete({ id })
   }
 
   useEffect(() => {
-    client.models.SmartPlantPotData.observeQuery().subscribe({
-      next: (data) => setSmartPlantPotdata([...data.items]),
+    client.models.SmartPlantData.observeQuery().subscribe({
+      next: (data) => setSmartPlantData([...data.items]),
     });
   }, []);
   /*
@@ -36,7 +36,7 @@ function App() {
           <h1>My todos</h1>
 
           <ul>
-            {smartPlantPotData.map((plant) => <li
+            {smartPlantData.map((plant) => <li
               onClick={() => deleteTodo(plant.id)}
               key={plant.id}>
               {plant.deviceId}
