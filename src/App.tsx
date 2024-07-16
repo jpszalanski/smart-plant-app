@@ -32,14 +32,14 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <main>
-          <h1>{user?.signInDetails?.loginId}'s todos</h1>
+          <h1>Olá, {user?.signInDetails?.loginId}</h1>
           <h1>My todos</h1>
 
           <ul>
-            {smartPlantData.map((plant) => <li
-              onClick={() => deleteTodo(plant.id)}
-              key={plant.id}>
-              {plant.deviceId}
+            {smartPlantData.map((device) => <li
+              onClick={() => deleteTodo(device.id)}
+              key={device.id}>
+              {device.deviceId}
             </li>)}
           </ul>
 
