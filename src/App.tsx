@@ -10,11 +10,6 @@ function App() {
   const [smartPlantData, setSmartPlantData] = useState<Array<Schema["SmartPlantData"]["type"]>>([]);
 
 
-
-  function deleteTodo(id: string) {
-    client.models.SmartPlantData.delete({ id })
-  }
-
   const fetchSensorData = async () => {
     const { data: items, errors } = await client.models.SmartPlantData.list();
     setSmartPlantData(items);
