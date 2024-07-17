@@ -1,9 +1,8 @@
-// SmartPlantDashboard.tsx
 import { useState, useEffect } from 'react';
+import { Row, Col, Card } from 'antd';
+import { Line, Gauge } from '@ant-design/charts';
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '../amplify/data/resource';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Grid, Paper, Typography } from '@mui/material';
 
 const client = generateClient<Schema>();
 
@@ -13,110 +12,109 @@ const SmartPlantDashboard = () => {
     useEffect(() => {
         const fetchSmartPlantData = async () => {
             const data = await client.models.SmartPlantData.list();
-            setSmartPlantData(data.data); // Acessa os dados diretamente da propriedade data
+            setSmartPlantData(data.data);
         };
 
         fetchSmartPlantData();
-
-        // Subscribe to changes in SmartPlantData
-        const createSub = client.models.SmartPlantData.onCreate().subscribe({
-            next: (data) => {
-                setSmartPlantData((prevData) => [...prevData, data]);
-            },
-            error: (error) => console.warn(error),
-        });
-
-        const updateSub = client.models.SmartPlantData.onUpdate().subscribe({
-            next: (data) => {
-                setSmartPlantData((prevData) =>
-                    prevData.map((item) => (item.id === data.id ? data : item))
-                );
-            },
-            error: (error) => console.warn(error),
-        });
-
-        const deleteSub = client.models.SmartPlantData.onDelete().subscribe({
-            next: (data) => {
-                setSmartPlantData((prevData) => prevData.filter((item) => item.id !== data.id));
-            },
-            error: (error) => console.warn(error),
-        });
-
-        return () => {
-            createSub.unsubscribe();
-            updateSub.unsubscribe();
-            deleteSub.unsubscribe();
-        };
     }, []);
 
+    // Pega o valor de soilMoisture do último registro e garante que seja um número válido
+    const soilMoistureValue = smartPlantData.length > 0 ? smartPlantData[smartPlantData.length - 1].soilMoisture ?? 0 : 0;
+
+    const temperatureConfig = {
+        data: smartPlantData,
+        xField: 'updatedAt',
+        yField: 'temperature',
+        smooth: true,
+        lineStyle: {
+            lineWidth: 2,
+        },
+    };
+
+    const humidityConfig = {
+        data: smartPlantData,
+        xField: 'updatedAt',
+        yField: 'humidity',
+        smooth: true,
+        lineStyle: {
+            lineWidth: 2,
+        },
+    };
+
+    const lightConfig = {
+        data: smartPlantData,
+        xField: 'updatedAt',
+        yField: 'light',
+        smooth: true,
+        lineStyle: {
+            lineWidth: 2,
+        },
+    };
+
+    const soilMoistureConfig = {
+        percent: soilMoistureValue / 100, // o Gauge precisa de um valor de 0 a 1
+        range: {
+            ticks: [0, 0.25, 0.5, 0.75, 1],
+            color: 'l(0) 0:#f0f0f0 1:#30BF78',
+        },
+        indicator: {
+            pointer: {
+                style: {
+                    stroke: '#30BF78',
+                },
+            },
+            pin: {
+                style: {
+                    stroke: '#30BF78',
+                },
+            },
+        },
+        axis: {
+            label: {
+                formatter: (v: string) => `${(Number(v) * 100).toFixed(0)}%`,
+            },
+            subTickLine: {
+                count: 3,
+            },
+        },
+        statistic: {
+            content: {
+                style: {
+                    fontSize: '24px',
+                    lineHeight: '44px',
+                },
+                formatter: () => `${soilMoistureValue}%`,
+            },
+        },
+    };
+
     return (
-        <Grid container spacing={3}>
-            <Grid item xs={12}>
-                <Typography variant="h4" gutterBottom>
-                    Smart Plant Dashboard
-                </Typography>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <Paper elevation={3} style={{ padding: '16px' }}>
-                    <Typography variant="h6">Light</Typography>
-                    <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={smartPlantData}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="updatedAt" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
-                            <Line type="monotone" dataKey="light" stroke="#8884d8" />
-                        </LineChart>
-                    </ResponsiveContainer>
-                </Paper>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <Paper elevation={3} style={{ padding: '16px' }}>
-                    <Typography variant="h6">Soil Moisture</Typography>
-                    <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={smartPlantData}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="updatedAt" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
-                            <Line type="monotone" dataKey="soilMoisture" stroke="#82ca9d" />
-                        </LineChart>
-                    </ResponsiveContainer>
-                </Paper>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <Paper elevation={3} style={{ padding: '16px' }}>
-                    <Typography variant="h6">Temperature</Typography>
-                    <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={smartPlantData}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="updatedAt" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
-                            <Line type="monotone" dataKey="temperature" stroke="#ff7300" />
-                        </LineChart>
-                    </ResponsiveContainer>
-                </Paper>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <Paper elevation={3} style={{ padding: '16px' }}>
-                    <Typography variant="h6">Humidity</Typography>
-                    <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={smartPlantData}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="updatedAt" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
-                            <Line type="monotone" dataKey="humidity" stroke="#387908" />
-                        </LineChart>
-                    </ResponsiveContainer>
-                </Paper>
-            </Grid>
-        </Grid>
+        <div className="site-card-wrapper">
+            <Row gutter={16}>
+                <Col span={8}>
+                    <Card title="Temperature" bordered={false}>
+                        <Line {...temperatureConfig} />
+                    </Card>
+                </Col>
+                <Col span={8}>
+                    <Card title="Humidity" bordered={false}>
+                        <Line {...humidityConfig} />
+                    </Card>
+                </Col>
+                <Col span={8}>
+                    <Card title="Light Intensity" bordered={false}>
+                        <Line {...lightConfig} />
+                    </Card>
+                </Col>
+            </Row>
+            <Row gutter={16} style={{ marginTop: 16 }}>
+                <Col span={12}>
+                    <Card title="Soil Moisture" bordered={false}>
+                        <Gauge {...soilMoistureConfig} />
+                    </Card>
+                </Col>
+            </Row>
+        </div>
     );
 };
 
