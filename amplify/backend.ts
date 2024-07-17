@@ -14,18 +14,18 @@ const authStack = backend.createStack("ExistingAuth")
 const userPool = UserPool.fromUserPoolId(
   authStack,
   "UserPool",
-  "us-east-1_7Ph0LzUE1"
+  "us-east-1_23MogIDLO"
 )
 const userPoolClient = UserPoolClient.fromUserPoolClientId(
   authStack,
   "UserPoolClient",
-  "503na34tl0hdr6fnb78cf9a8bg"
+  "6o39ktj11lhl62n35gg0dk64a6"
 )
 
 
 
 // Cognito Identity Pools can be referenced directly
-const identityPoolId = "us-east-1:6e2fb45b-7c9e-4101-a715-66e6d4e1719b"
+const identityPoolId = "us-east-1:ec85e169-9143-48af-abed-0324c3f0a292"
 
 backend.addOutput({
   auth: {

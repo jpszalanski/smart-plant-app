@@ -6,7 +6,9 @@ import type { Schema } from '../amplify/data/resource';
 import './RealTimeDashboard.css';
 import SmartPlantDashboard from './SmartPlantDashboard';
 
-const client = generateClient<Schema>();
+const client = generateClient<Schema>({
+    authMode: 'userPool',
+});
 const { Title } = Typography;
 
 const RealTimeDashboard = () => {

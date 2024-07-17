@@ -14,7 +14,9 @@ import {
 } from 'recharts';
 import './SmartPlantDashboard.css';
 
-const client = generateClient<Schema>();
+const client = generateClient<Schema>({
+    authMode: 'userPool',
+});
 const { Title } = Typography;
 
 const SmartPlantDashboard = () => {
