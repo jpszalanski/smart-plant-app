@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Row, Col, Card, Typography } from 'antd';
+import { Row, Col, Card, Typography, Button } from 'antd';
 import { generateClient } from 'aws-amplify/data';
+import { PubSub } from '@aws-amplify/pubsub';
 import type { Schema } from '../amplify/data/resource';
 import './RealTimeDashboard.css';
 import SmartPlantDashboard from './SmartPlantDashboard';
@@ -10,6 +11,12 @@ const { Title } = Typography;
 
 const RealTimeDashboard = () => {
     const [latestData, setLatestData] = useState<Schema['SmartPlantData']['type'] | null>(null);
+
+    const pubsub = new PubSub({
+        region: "us-east-1",
+        endpoint:
+            'wss://a25uug4xbk339z-ats.iot.us-east-1.amazonaws.com/mqtt'
+    });
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,6 +43,12 @@ const RealTimeDashboard = () => {
             sub.unsubscribe();
         };
     }, []);
+
+    const handleIrrigation = () => {
+        pubsub.publish({ topics: '$aws/things/SmartPlantPot/shadow/control', message: { msg: 'Hello to all subscribers!' } })
+            .then(() => console.log('Irrigation command sent'))
+            .catch((err) => console.error('Error sending irrigation command', err));
+    };
 
     return (
         <div className="dashboard-container">
@@ -67,6 +80,7 @@ const RealTimeDashboard = () => {
                         <Title level={4}>Umidade do Solo</Title>
                         <div className="sensor-value">{latestData?.soilMoisture ?? 'N/A'}%</div>
                         <Typography.Text type="secondary">{latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}</Typography.Text>
+                        <Button type="primary" onClick={handleIrrigation} style={{ marginTop: '10px' }}>Acionar Irrigação</Button>
                     </Card>
                 </Col>
             </Row>
