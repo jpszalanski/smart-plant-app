@@ -9,7 +9,7 @@ const schema = a.schema({
     soilMoisture: a.float().required(),
     createdAt: a.timestamp().required(),
     updatedAt: a.timestamp().required(),
-  }).authorization(allow => [allow.authenticated()])
+  }).authorization(allow => [allow.authenticated('identityPool')]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

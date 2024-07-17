@@ -3,6 +3,7 @@ import { Row, Col, Card, Typography, Button } from 'antd';
 import { generateClient } from 'aws-amplify/data';
 import { PubSub } from '@aws-amplify/pubsub';
 import type { Schema } from '../amplify/data/resource';
+import './App.css';
 import './RealTimeDashboard.css';
 import SmartPlantDashboard from './SmartPlantDashboard';
 
@@ -42,6 +43,7 @@ const RealTimeDashboard = () => {
         return () => {
             sub.unsubscribe();
         };
+
     }, []);
 
     const handleIrrigation = () => {

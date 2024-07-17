@@ -1,40 +1,54 @@
-.layout {
-  min-height: 100vh;
+/* Geral */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
 }
 
+/* Layout */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
 .logo {
-  float: left;
-  width: 36px;
-  height: 9px;
-  margin: 10px 16px 16px 0;
-  background: rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: center;
+  padding: 16px;
 }
 
 .logo img {
-  width: 100%;
+  width: 120px;
   height: auto;
 }
 
+/* Conteúdo Principal */
 .site-layout-content {
-  margin: 24px 16px 0;
-  padding: 24px;
+  flex: 1;
+  padding: 16px;
   background: #fff;
 }
 
 .user-info {
-  float: right;
+  margin-left: auto;
   display: flex;
   align-items: center;
-  color: white;
+  color: #fff;
 }
 
+/* Rodapé */
 .footer {
   text-align: center;
   background: #f0f2f5;
-  padding: 24px 50px;
+  padding: 24px 16px;
   font-size: 14px;
 }
 
+/* Custom Authenticator */
 .custom-authenticator {
   display: flex;
   flex-direction: column;
@@ -44,4 +58,56 @@
 .custom-logo {
   width: 150px;
   margin-bottom: 20px;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .layout {
+    padding: 0;
+  }
+
+  .header,
+  .footer {
+    padding: 16px;
+  }
+
+  .logo {
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .user-info {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .site-layout-content {
+    padding: 16px;
+  }
+
+  .sensor-card {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-layout-content {
+    padding: 8px;
+  }
+
+  .footer {
+    padding: 16px;
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  .sensor-card {
+    margin-bottom: 12px;
+    text-align: center;
+  }
 }
