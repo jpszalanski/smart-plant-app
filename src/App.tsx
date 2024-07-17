@@ -1,17 +1,15 @@
-
 import { Layout, Button } from 'antd';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import './App.css';
 import RealTimeDashboard from './RealTimeDashboard';
-
-
+import CustomAuthenticator from './CustomAuthenticator';
 
 const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
-    <Authenticator>
+    <Authenticator components={CustomAuthenticator}>
       {({ signOut, user }) => (
         <Layout className="layout">
           <Header>
@@ -26,7 +24,7 @@ function App() {
               <RealTimeDashboard />
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Smart Plant Dashboard ©2024 Jeferson Aguiar</Footer>
+          <Footer style={{ textAlign: 'center' }}>Smart Plant Dashboard ©2024 Created by Jeferson Aguiar</Footer>
         </Layout>
       )}
     </Authenticator>
@@ -34,4 +32,3 @@ function App() {
 }
 
 export default App;
-
