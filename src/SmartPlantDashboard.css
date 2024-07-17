@@ -1,0 +1,13 @@
+.dashboard-charts {
+    margin-top: 32px;
+}
+
+.sensor-card {
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}

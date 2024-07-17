@@ -15,7 +15,7 @@ function App() {
           <Header>
             <div className="logo" />
             <div className="user-info">
-              <span>Olá, {user?.username}</span>
+              <span>Olá, {user?.signInDetails?.loginId}</span>
               <Button onClick={signOut} style={{ marginLeft: '20px' }}>Sign Out</Button>
             </div>
           </Header>

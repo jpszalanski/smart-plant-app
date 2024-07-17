@@ -2,13 +2,13 @@ import { a, defineData, type ClientSchema } from '@aws-amplify/backend';
 
 const schema = a.schema({
   SmartPlantData: a.model({
-    deviceId: a.string(),
-    temperature: a.float(),
-    humidity: a.float(),
-    light: a.float(),
-    soilMoisture: a.float(),
-    createdAt: a.string(),
-    updatedAt: a.string(),
+    deviceId: a.string().required(),
+    temperature: a.float().required(),
+    humidity: a.float().required(),
+    light: a.float().required(),
+    soilMoisture: a.float().required(),
+    createdAt: a.timestamp().required(),
+    updatedAt: a.timestamp().required(),
   }).authorization(allow => [allow.publicApiKey()])
 });
 
