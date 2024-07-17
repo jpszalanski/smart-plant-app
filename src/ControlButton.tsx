@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { IoTDataPlaneClient, PublishCommand } from '@aws-sdk/client-iot-data-plane';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
+import "./index.css";
+import '@aws-amplify/ui-react/styles.css';
+
 
 const ControlButton: React.FC = () => {
     const [iotClient, setIotClient] = useState<IoTDataPlaneClient | null>(null);
@@ -11,7 +14,7 @@ const ControlButton: React.FC = () => {
             try {
                 const credentials = fromCognitoIdentityPool({
                     client: new CognitoIdentityClient({ region: "us-east-1" }),
-                    identityPoolId: 'us-east-1:52c00a4d-1a87-4a8f-a5f7-408be5b4fb9d',
+                    identityPoolId: "us-east-1:52c00a4d-1a87-4a8f-a5f7-408be5b4fb9d",
                 });
 
                 const client = new IoTDataPlaneClient({
@@ -34,16 +37,10 @@ const ControlButton: React.FC = () => {
             return;
         }
 
-        const payload = {
-            state: {
-                desired: {
-                    irrigation: 'ON', // Comando de exemplo para acionar a irrigação
-                },
-            },
-        };
+        const payload = '1';
 
         const command = new PublishCommand({
-            topic: '$aws/things/SmartPlantPot/shadow/control',
+            topic: "$aws/things/SmartPlantPot/shadow/control",
             payload: new TextEncoder().encode(JSON.stringify(payload)),
         });
 
