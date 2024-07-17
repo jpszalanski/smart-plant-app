@@ -19,13 +19,13 @@ const userPool = UserPool.fromUserPoolId(
 const userPoolClient = UserPoolClient.fromUserPoolClientId(
   authStack,
   "UserPoolClient",
-  "52ml83h4sfu3irsb0114mdf7eg"
+  "503na34tl0hdr6fnb78cf9a8bg"
 )
 
 
 
 // Cognito Identity Pools can be referenced directly
-const identityPoolId = "us-east-1:5cbf7cfc-7bee-4bb0-a9b3-7c3cb8ed1d7d"
+const identityPoolId = "us-east-1:6e2fb45b-7c9e-4101-a715-66e6d4e1719b"
 
 
 
