@@ -13,7 +13,9 @@ function App() {
       {({ signOut, user }) => (
         <Layout className="layout">
           <Header>
-            <div className="logo" />
+            <div className="logo" >
+              <img src="/logo.png" alt="SmartPlantPot" />
+            </div>
             <div className="user-info">
               <span>Olá, {user?.signInDetails?.loginId}</span>
               <Button onClick={signOut} style={{ marginLeft: '20px' }}>Sign Out</Button>

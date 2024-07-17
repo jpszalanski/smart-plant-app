@@ -23,7 +23,8 @@ const SmartPlantDashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await client.models.SmartPlantData.list();
-            setSensorData(data.data);
+            const sortedData = data.data.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+            setSensorData(sortedData);
         };
 
         fetchData();
@@ -39,7 +40,13 @@ const SmartPlantDashboard = () => {
                             <LineChart data={sensorData}>
                                 <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
                                 <CartesianGrid stroke="#ccc" />
-                                <XAxis dataKey="createdAt" tickFormatter={(tick) => new Date(tick).toLocaleString()} />
+                                <XAxis
+                                    dataKey="createdAt"
+                                    tickFormatter={(tick) => new Date(tick).toLocaleString()}
+                                    type="number"
+                                    domain={['auto', 'auto']}
+                                    scale="time"
+                                />
                                 <YAxis unit="°C" />
                                 <Tooltip labelFormatter={(label) => new Date(label).toLocaleString()} formatter={(value) => `${value}°C`} />
                                 <Legend />
@@ -56,7 +63,13 @@ const SmartPlantDashboard = () => {
                             <LineChart data={sensorData}>
                                 <Line type="monotone" dataKey="humidity" stroke="#82ca9d" />
                                 <CartesianGrid stroke="#ccc" />
-                                <XAxis dataKey="createdAt" tickFormatter={(tick) => new Date(tick).toLocaleString()} />
+                                <XAxis
+                                    dataKey="createdAt"
+                                    tickFormatter={(tick) => new Date(tick).toLocaleString()}
+                                    type="number"
+                                    domain={['auto', 'auto']}
+                                    scale="time"
+                                />
                                 <YAxis unit="%" />
                                 <Tooltip labelFormatter={(label) => new Date(label).toLocaleString()} formatter={(value) => `${value}%`} />
                                 <Legend />
@@ -73,7 +86,13 @@ const SmartPlantDashboard = () => {
                             <LineChart data={sensorData}>
                                 <Line type="monotone" dataKey="light" stroke="#ffc658" />
                                 <CartesianGrid stroke="#ccc" />
-                                <XAxis dataKey="createdAt" tickFormatter={(tick) => new Date(tick).toLocaleString()} />
+                                <XAxis
+                                    dataKey="createdAt"
+                                    tickFormatter={(tick) => new Date(tick).toLocaleString()}
+                                    type="number"
+                                    domain={['auto', 'auto']}
+                                    scale="time"
+                                />
                                 <YAxis unit="lux" />
                                 <Tooltip labelFormatter={(label) => new Date(label).toLocaleString()} formatter={(value) => `${value} lux`} />
                                 <Legend />
@@ -90,7 +109,13 @@ const SmartPlantDashboard = () => {
                             <LineChart data={sensorData}>
                                 <Line type="monotone" dataKey="soilMoisture" stroke="#8884d8" />
                                 <CartesianGrid stroke="#ccc" />
-                                <XAxis dataKey="createdAt" tickFormatter={(tick) => new Date(tick).toLocaleString()} />
+                                <XAxis
+                                    dataKey="createdAt"
+                                    tickFormatter={(tick) => new Date(tick).toLocaleString()}
+                                    type="number"
+                                    domain={['auto', 'auto']}
+                                    scale="time"
+                                />
                                 <YAxis unit="%" />
                                 <Tooltip labelFormatter={(label) => new Date(label).toLocaleString()} formatter={(value) => `${value}%`} />
                                 <Legend />

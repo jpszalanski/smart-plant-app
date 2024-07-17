@@ -8,11 +8,6 @@ import outputs from "../amplify_outputs.json";
 import { DataStore } from '@aws-amplify/datastore';
 
 
-
-
-
-
-
 Amplify.configure(outputs);
 
 DataStore.configure({
