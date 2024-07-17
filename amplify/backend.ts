@@ -27,9 +27,6 @@ const userPoolClient = UserPoolClient.fromUserPoolClientId(
 // Cognito Identity Pools can be referenced directly
 const identityPoolId = "us-east-1:6e2fb45b-7c9e-4101-a715-66e6d4e1719b"
 
-
-
-
 backend.addOutput({
   auth: {
     aws_region: authStack.region,
