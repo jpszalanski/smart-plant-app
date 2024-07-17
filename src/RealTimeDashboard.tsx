@@ -7,7 +7,7 @@ import './RealTimeDashboard.css';
 import SmartPlantDashboard from './SmartPlantDashboard';
 
 const client = generateClient<Schema>({
-    authMode: 'userPool',
+    authMode: 'identityPool',
 });
 const { Title } = Typography;
 
