@@ -34,14 +34,14 @@ const SmartPlantDashboard = () => {
             <Row gutter={16}>
                 <Col span={24}>
                     <Card className="sensor-card">
-                        <Title level={4}>Histórico de Temperatura</Title>
+                        <Title level={4}>Histórico de Temperatura (°C)</Title>
                         <ResponsiveContainer width="100%" height={400}>
                             <LineChart data={sensorData}>
                                 <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
                                 <CartesianGrid stroke="#ccc" />
-                                <XAxis dataKey="createdAt" />
-                                <YAxis />
-                                <Tooltip />
+                                <XAxis dataKey="createdAt" tickFormatter={(tick) => new Date(tick).toLocaleString()} />
+                                <YAxis unit="°C" />
+                                <Tooltip labelFormatter={(label) => new Date(label).toLocaleString()} formatter={(value) => `${value}°C`} />
                                 <Legend />
                             </LineChart>
                         </ResponsiveContainer>
@@ -51,14 +51,14 @@ const SmartPlantDashboard = () => {
             <Row gutter={16}>
                 <Col span={24}>
                     <Card className="sensor-card">
-                        <Title level={4}>Histórico de Umidade</Title>
+                        <Title level={4}>Histórico de Umidade (%)</Title>
                         <ResponsiveContainer width="100%" height={400}>
                             <LineChart data={sensorData}>
                                 <Line type="monotone" dataKey="humidity" stroke="#82ca9d" />
                                 <CartesianGrid stroke="#ccc" />
-                                <XAxis dataKey="createdAt" />
-                                <YAxis />
-                                <Tooltip />
+                                <XAxis dataKey="createdAt" tickFormatter={(tick) => new Date(tick).toLocaleString()} />
+                                <YAxis unit="%" />
+                                <Tooltip labelFormatter={(label) => new Date(label).toLocaleString()} formatter={(value) => `${value}%`} />
                                 <Legend />
                             </LineChart>
                         </ResponsiveContainer>
@@ -68,14 +68,14 @@ const SmartPlantDashboard = () => {
             <Row gutter={16}>
                 <Col span={24}>
                     <Card className="sensor-card">
-                        <Title level={4}>Histórico de Luminosidade</Title>
+                        <Title level={4}>Histórico de Luminosidade (lux)</Title>
                         <ResponsiveContainer width="100%" height={400}>
                             <LineChart data={sensorData}>
                                 <Line type="monotone" dataKey="light" stroke="#ffc658" />
                                 <CartesianGrid stroke="#ccc" />
-                                <XAxis dataKey="createdAt" />
-                                <YAxis />
-                                <Tooltip />
+                                <XAxis dataKey="createdAt" tickFormatter={(tick) => new Date(tick).toLocaleString()} />
+                                <YAxis unit="lux" />
+                                <Tooltip labelFormatter={(label) => new Date(label).toLocaleString()} formatter={(value) => `${value} lux`} />
                                 <Legend />
                             </LineChart>
                         </ResponsiveContainer>
@@ -85,14 +85,14 @@ const SmartPlantDashboard = () => {
             <Row gutter={16}>
                 <Col span={24}>
                     <Card className="sensor-card">
-                        <Title level={4}>Histórico de Umidade do Solo</Title>
+                        <Title level={4}>Histórico de Umidade do Solo (%)</Title>
                         <ResponsiveContainer width="100%" height={400}>
                             <LineChart data={sensorData}>
                                 <Line type="monotone" dataKey="soilMoisture" stroke="#8884d8" />
                                 <CartesianGrid stroke="#ccc" />
-                                <XAxis dataKey="createdAt" />
-                                <YAxis />
-                                <Tooltip />
+                                <XAxis dataKey="createdAt" tickFormatter={(tick) => new Date(tick).toLocaleString()} />
+                                <YAxis unit="%" />
+                                <Tooltip labelFormatter={(label) => new Date(label).toLocaleString()} formatter={(value) => `${value}%`} />
                                 <Legend />
                             </LineChart>
                         </ResponsiveContainer>

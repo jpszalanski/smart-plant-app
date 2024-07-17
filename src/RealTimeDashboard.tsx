@@ -9,47 +9,33 @@ const client = generateClient<Schema>();
 const { Title } = Typography;
 
 const RealTimeDashboard = () => {
-    const [sensorData, setSensorData] = useState<Array<Schema['SmartPlantData']['type']>>([]);
+    const [latestData, setLatestData] = useState<Schema['SmartPlantData']['type'] | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
             const data = await client.models.SmartPlantData.list();
-            setSensorData(data.data);
+            if (data.data.length > 0) {
+                const sortedData = data.data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+                setLatestData(sortedData[0]);
+            }
         };
 
         fetchData();
 
-        const createSub = client.models.SmartPlantData.onCreate().subscribe({
-            next: (data) => setSensorData((prevData) => [...prevData, data]),
-            error: (error) => console.warn(error),
-        });
-
-        const updateSub = client.models.SmartPlantData.onUpdate().subscribe({
-            next: (data) => {
-                setSensorData((prevData) =>
-                    prevData.map((item) => (item.id === data.id ? data : item))
-                );
-            },
-            error: (error) => console.warn(error),
-        });
-
-        const deleteSub = client.models.SmartPlantData.onDelete().subscribe({
-            next: (data) => {
-                setSensorData((prevData) =>
-                    prevData.filter((item) => item.id !== data.id)
-                );
+        const sub = client.models.SmartPlantData.observeQuery().subscribe({
+            next: ({ items }) => {
+                if (items.length > 0) {
+                    const sortedItems = items.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+                    setLatestData(sortedItems[0]);
+                }
             },
             error: (error) => console.warn(error),
         });
 
         return () => {
-            createSub.unsubscribe();
-            updateSub.unsubscribe();
-            deleteSub.unsubscribe();
+            sub.unsubscribe();
         };
     }, []);
-
-    const latestData = sensorData.length > 0 ? sensorData[sensorData.length - 1] : null;
 
     return (
         <div className="dashboard-container">
