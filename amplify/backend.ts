@@ -1,9 +1,14 @@
 import { defineBackend } from "@aws-amplify/backend"
 import { UserPool, UserPoolClient } from "aws-cdk-lib/aws-cognito"
+import { auth } from './auth/resource';
+import { data } from './data/resource';
 
 
 const backend = defineBackend({})
-
+defineBackend({
+  auth,
+  data
+});
 
 const authStack = backend.createStack("ExistingAuth")
 const userPool = UserPool.fromUserPoolId(
