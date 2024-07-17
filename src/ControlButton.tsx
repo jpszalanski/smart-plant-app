@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from 'antd';
 import { IoTDataPlaneClient, PublishCommand } from '@aws-sdk/client-iot-data-plane';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
-import "./index.css";
-import '@aws-amplify/ui-react/styles.css';
+import './ControlButton.css';
 
+interface ControlButtonProps {
+    action: boolean;
+    label: string;
+}
 
-const ControlButton: React.FC = () => {
+const ControlButton: React.FC<ControlButtonProps> = ({ action, label }) => {
     const [iotClient, setIotClient] = useState<IoTDataPlaneClient | null>(null);
 
     useEffect(() => {
@@ -37,7 +41,7 @@ const ControlButton: React.FC = () => {
             return;
         }
 
-        const payload = '1';
+        const payload = action;
 
         const command = new PublishCommand({
             topic: "$aws/things/SmartPlantPot/shadow/control",
@@ -53,9 +57,9 @@ const ControlButton: React.FC = () => {
     };
 
     return (
-        <button onClick={handleClick}>
-            Acionar Irrigação
-        </button>
+        <Button type="primary" danger={!action} onClick={handleClick} className="control-button">
+            {label}
+        </Button>
     );
 };
 

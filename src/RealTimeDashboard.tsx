@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Row, Col, Card, Typography } from 'antd';
+import { Row, Col, Card, Typography, Space } from 'antd';
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '../amplify/data/resource';
 import './RealTimeDashboard.css';
 import SmartPlantDashboard from './SmartPlantDashboard';
-import ControlButton from './ControlButton'; // Importando o ControlButton
+import ControlButton from './ControlButton';
 
 const client = generateClient<Schema>({
     authMode: 'identityPool',
@@ -71,7 +71,10 @@ const RealTimeDashboard = () => {
                         <Title level={4}>Umidade do Solo</Title>
                         <div className="sensor-value">{latestData?.soilMoisture ?? 'N/A'}%</div>
                         <Typography.Text type="secondary">{latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}</Typography.Text>
-                        <ControlButton /> {/* Integrando o ControlButton */}
+                        <Space direction="vertical" style={{ marginTop: '10px' }}>
+                            <ControlButton action={true} label="Acionar Irrigação" />
+                            <ControlButton action={false} label="Desligar Irrigação" />
+                        </Space>
                     </Card>
                 </Col>
             </Row>
