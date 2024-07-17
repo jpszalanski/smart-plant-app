@@ -13,7 +13,6 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 import './SmartPlantDashboard.css';
-import './App.css';
 
 const client = generateClient<Schema>();
 const { Title } = Typography;

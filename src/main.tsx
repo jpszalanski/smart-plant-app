@@ -10,6 +10,7 @@ import { DataStore } from '@aws-amplify/datastore';
 
 Amplify.configure(outputs);
 
+
 DataStore.configure({
   // Qualquer configuração específica que você precise para o DataStore
 });
