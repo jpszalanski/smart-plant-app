@@ -9,7 +9,7 @@ const schema = a.schema({
     soilMoisture: a.float().required(),
     createdAt: a.timestamp().required(),
     updatedAt: a.timestamp().required(),
-}).authorization((allow) => [allow.guest()]),
+}).authorization((allow) => [allow.guest(), allow.authenticated('identityPool')]),
 //}).authorization((allow) => [allow.guest()]),
 });
 
