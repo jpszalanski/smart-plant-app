@@ -10,6 +10,7 @@ const schema = a.schema({
     createdAt: a.timestamp().required(),
     updatedAt: a.timestamp().required(),
 }).authorization((allow) => [allow.guest()]),
+//}).authorization((allow) => [allow.guest()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
