@@ -9,7 +9,7 @@ const schema = a.schema({
     soilMoisture: a.float().required(),
     createdAt: a.timestamp().required(),
     updatedAt: a.timestamp().required(),
-  }).authorization(allow => [allow.authenticated('identityPool')]),
+}).authorization((allow) => [allow.guest()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -17,7 +17,7 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: "userPool",
+    defaultAuthorizationMode: 'iam',
     apiKeyAuthorizationMode: { expiresInDays: 30 },
   }
 });
