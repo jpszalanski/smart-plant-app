@@ -9,8 +9,23 @@ const schema = a.schema({
     soilMoisture: a.float().required(),
     createdAt: a.timestamp().required(),
     updatedAt: a.timestamp().required(),
-}).authorization((allow) => [allow.guest(), allow.authenticated('identityPool')]),
-//}).authorization((allow) => [allow.guest()]),
+  }).authorization((allow) => [allow.guest(), allow.authenticated('identityPool')]),
+
+  PlantIdentificationData: a.model({
+    nome: a.string().required(),
+    especie: a.string().required(),
+    temperaturaMin: a.float().required(),
+    temperaturaMax: a.float().required(),
+    umidadeArMin: a.float().required(),
+    umidadeArMax: a.float().required(),
+    iluminanciaMin: a.float().required(),
+    iluminanciaMax: a.float().required(),
+    umidadeSoloMin: a.float().required(),
+    umidadeSoloMax: a.float().required(),
+    recomendacoes: a.string().required(),
+    createdAt: a.timestamp().required(),
+    updatedAt: a.timestamp().required(),
+  }).authorization((allow) => [allow.authenticated('identityPool')]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -22,5 +37,3 @@ export const data = defineData({
     apiKeyAuthorizationMode: { expiresInDays: 30 },
   }
 });
-
-
