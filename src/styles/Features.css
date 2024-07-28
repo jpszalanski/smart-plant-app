@@ -1,0 +1,33 @@
+.features-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9fafb;
+  }
+  
+  .title {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .description {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  .features-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+  }
+  
+  .features-list li {
+    background-color: #e8f5e9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1em;
+  }
+  

@@ -1,13 +1,13 @@
 import { Layout, Button } from 'antd';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import './App.css';
-import RealTimeDashboard from './RealTimeDashboard';
-import CustomAuthenticator from './CustomAuthenticator';
+import '../styles/Login.css';
+import RealTimeDashboard from '../components/RealTimeDashboard';
+import CustomAuthenticator from '../custom/CustomAuthenticator';
 
 const { Header, Content, Footer } = Layout;
 
-function App() {
+function Login() {
   return (
     <Authenticator components={CustomAuthenticator}>
       {({ signOut, user }) => (
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;

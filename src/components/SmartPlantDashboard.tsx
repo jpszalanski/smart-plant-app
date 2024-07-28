@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Row, Col, Card, Typography } from 'antd';
 import { generateClient } from 'aws-amplify/data';
-import type { Schema } from '../amplify/data/resource';
+import type { Schema } from '../../amplify/data/resource';
 import {
     LineChart,
     Line,
@@ -12,7 +12,7 @@ import {
     Legend,
     ResponsiveContainer,
 } from 'recharts';
-import './SmartPlantDashboard.css';
+import '../styles/SmartPlantDashboard.css';
 
 const client = generateClient<Schema>({
     authMode: 'identityPool',

@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { IoTDataPlaneClient, PublishCommand } from '@aws-sdk/client-iot-data-plane';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
-import './ControlButton.css';
+import '../styles/ControlButton.css';
 
 interface ControlButtonProps {
     action: boolean;

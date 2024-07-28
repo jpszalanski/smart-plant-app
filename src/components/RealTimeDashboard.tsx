@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Row, Col, Card, Typography, Space } from 'antd';
 import { generateClient } from 'aws-amplify/data';
-import type { Schema } from '../amplify/data/resource';
-import './RealTimeDashboard.css';
-import SmartPlantDashboard from './SmartPlantDashboard';
-import ControlButton from './ControlButton';
+import type { Schema } from '../../amplify/data/resource.ts';
+import '../styles/RealTimeDashboard.css';
+import SmartPlantDashboard from '../components/SmartPlantDashboard';
+import ControlButton from '../components/ControlButton';
 
 const client = generateClient<Schema>({
     authMode: 'identityPool',
