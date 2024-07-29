@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: #f0f2f5;
+  background-color: hsl(135, 12%, 7%);
 }
 
 a {

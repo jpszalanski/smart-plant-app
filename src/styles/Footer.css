@@ -1,7 +1,9 @@
+/* Footer.css */
 .footer {
-  background-color: #333;
-  color: white;
-  padding: 20px;
   text-align: center;
-  margin-top: 50px;
+  padding: 2rem 1rem;
+  background-color: #393c3a;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+
 }

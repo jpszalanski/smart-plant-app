@@ -10,9 +10,6 @@ const NavBar: React.FC = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <LinkContainer to="/">
-            <Nav.Link>Início</Nav.Link>
-          </LinkContainer>
           <LinkContainer to="/login"> 
             <Nav.Link>Login</Nav.Link>
           </LinkContainer>
@@ -23,3 +20,5 @@ const NavBar: React.FC = () => {
 };
 
 export default NavBar;
+
+

@@ -8,6 +8,7 @@ import Login from './Login';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import '../styles/App.css';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 
 const App: React.FC = () => {
   return (
