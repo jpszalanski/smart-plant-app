@@ -1,67 +1,63 @@
-
-
-
-/* Home.css */
-
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: #f9f9f9;
-  color: #333;
+
+
 }
 
 .home-container {
   padding: 0;
+  width: fill;
+  height:100%;
 }
 
-
 .hero-section {
-  background: linear-gradient(to bottom right, #050505, #fbfcfc);
-  color: #ffffff;
+  background-image: url('/smartplant-pot_bg.webp');
+  border-radius: 20px;
+
   display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  padding: 2rem 1rem;
-  position: relative;
-  overflow: hidden;
-  height: 90vh;
 }
 
 #scene {
   position: relative;
-  width: auto;
   height: 100%;
+
 }
 
 .layer {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 90%;
+  background-size:auto;
 }
 
 .text-layer {
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   align-items: center;
   justify-content: center;
-  height: 110%;
+  height: 100%;
 }
 
 .title1 {
   font-size: 5rem; /* Tamanho maior */
   font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold; 
-  margin-bottom: 3rem;
-  color: #44bdf5; /* Cor alterada */
+  margin-bottom: 1rem;
+  color: #0572ef; /* Cor alterada */
   text-align: center;
+  background-color:rgba(255, 255, 255, 0.482);
+  border-radius: 20px;
+
 }
 
 .subtitle {
   font-size: 2rem; /* Tamanho maior */
-  margin-bottom: 10rem;
+  margin-bottom: 1rem;
   font-weight: 100;
-  color: rgb(251, 252, 253); /* Cor alterada */
+  color: rgb(8, 8, 8); /* Cor alterada */
+  background-color:rgba(255, 255, 255, 0.482);
 }
 
 .benefits-section {
@@ -97,8 +93,8 @@ body {
 
 .hero-image {
   max-width: auto;
-  height: auto;
-  border-radius: 40px;
+  height:auto;
+  border-radius: 4px;
   margin-top: 0rem;
 }
 

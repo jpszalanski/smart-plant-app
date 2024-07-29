@@ -1,6 +1,6 @@
 import { View, Image, useTheme, Heading, Button, useAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import '../styles/App.css';
+import '../styles/Home.css';
 import { I18n } from 'aws-amplify/utils';
 import { translations } from '@aws-amplify/ui-react';
 I18n.putVocabularies(translations);
@@ -20,14 +20,7 @@ const CustomAuthenticator = {
         );
     },
 
-    Footer() {
-        const { tokens } = useTheme();
-        return (
-            <View textAlign="center" padding={tokens.space.large}>
-                <p>Smart Plant Dashboard ©2024 Created by Jeferson Aguiar</p>
-            </View>
-        );
-    },
+
 
     SignIn: {
         Header() {

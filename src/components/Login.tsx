@@ -5,7 +5,7 @@ import '../styles/Login.css';
 import RealTimeDashboard from '../components/RealTimeDashboard';
 import CustomAuthenticator from '../custom/CustomAuthenticator';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 function Login() {
   return (
@@ -26,7 +26,7 @@ function Login() {
               <RealTimeDashboard />
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Smart Plant Dashboard ©2024 Created by Jeferson Aguiar</Footer>
+        
         </Layout>
       )}
     </Authenticator>

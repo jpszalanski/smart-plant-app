@@ -1,9 +1,10 @@
 /* Footer.css */
 .footer {
   text-align: center;
-  padding: 2rem 1rem;
-  background-color: #393c3a;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-
+  padding: auto;
+  background-color: #fafdfb00;
+  border-radius:auto;
+  margin-bottom: auto;
+  margin-top: auto;
+  height: auto;
 }
