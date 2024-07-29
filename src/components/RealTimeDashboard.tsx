@@ -5,7 +5,7 @@ import type { Schema } from '../../amplify/data/resource.ts';
 import '../styles/RealTimeDashboard.css';
 import SmartPlantDashboard from '../components/SmartPlantDashboard';
 import ControlButton from '../components/ControlButton';
-import Footer from './Footer';
+
 
 const client = generateClient<Schema>({
     authMode: 'identityPool',
@@ -82,7 +82,6 @@ const RealTimeDashboard = () => {
             <div className="dashboard-charts">
                 <SmartPlantDashboard />
             </div>
-            <Footer />
         </div>
     );
 };

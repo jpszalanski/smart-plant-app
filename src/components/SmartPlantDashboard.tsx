@@ -127,7 +127,6 @@ const SmartPlantDashboard = () => {
                     </Card>
                 </Col>
             </Row>
-
         </div>
     );
 };
