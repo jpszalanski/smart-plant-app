@@ -16,11 +16,11 @@ const Home: React.FC = () => {
       <Row className="hero-section align-items-center">
         <div id="scene">
           <div data-depth="0.2" className="layer">
-            <Image src="/smartplant-pot-paralax.webp" alt="Smart Plant Pot" fluid className="hero-image" />
+            <Image src="/smartplant-pot-paralax.png" alt="Smart Plant Pot" fluid className="hero-image" />
           </div>
           <div data-depth="0.6" className="layer">
             <div className="text-layer">
-              <h1 className="title1">Smart Plant Pot</h1>
+              <h1 className="title1">Smart PlantPot</h1>
               <p className="subtitle">O cuidado perfeito para suas plantas, agora automatizado</p>
             </div>
           </div>

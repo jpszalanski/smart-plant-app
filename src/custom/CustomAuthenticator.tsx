@@ -1,6 +1,6 @@
 import { View, Image, useTheme, Heading, Button, useAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import '../styles/Home.css';
+import '../styles/Login.css';
 import { I18n } from 'aws-amplify/utils';
 import { translations } from '@aws-amplify/ui-react';
 I18n.putVocabularies(translations);

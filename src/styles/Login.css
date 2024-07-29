@@ -1,18 +1,18 @@
 /* Login.css */
 .layout {
-  min-height: 100vh;
+  min-height: 900vh;
 }
+
 
 .logo {
   float: left;
   width: 36px;
   height: 9px;
-  margin: 10px 16px 16px 0;
   background: rgba(255, 255, 255, 0);
 }
 
 .logo img {
-  width: 100%;
+  width: 10%;
   height: auto;
 }
 
@@ -29,12 +29,7 @@
   color: white;
 }
 
-.footer {
-  text-align: center;
-  background: #f0f2f5;
-  padding: 24px 50px;
-  font-size: 14px;
-}
+
 
 .custom-authenticator {
   display: flex;
@@ -43,6 +38,6 @@
 }
 
 .custom-logo {
-  width: 150px;
-  margin-bottom: 20px;
+  width: 100px;
+
 }
