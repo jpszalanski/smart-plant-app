@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Row,  Image } from 'react-bootstrap';
 import Parallax from 'parallax-js';
 import '../styles/Home.css';
+import '../styles/Footer.css';
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -26,7 +27,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </Row>
-      
     </Container>
   );
 };

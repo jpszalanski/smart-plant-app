@@ -54,9 +54,7 @@
     }
 
     .header,
-    .footer {
-        padding: 16px;
-    }
+
 
     .logo {
         justify-content: center;
@@ -85,9 +83,7 @@
         padding: 8px;
     }
 
-    .footer {
-        padding: 16px;
-    }
+
 
     .logo img {
         width: 100px;

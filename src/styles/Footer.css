@@ -1,11 +1,11 @@
+
 /* Footer.css */
 .footer {
+  position: relative;
   text-align: center;
-  padding: 24px 50px;
   background-color: #fafdfb00;
-  border-radius:auto;
-  margin-bottom: auto;
-  margin-top: auto;
-  height: auto;
+  border-radius: auto;
+  bottom: 0;
+  padding: 1rem 0;
+  width: 100%; /* Certifica-se de que o footer ocupa toda a largura */
 }
-

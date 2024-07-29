@@ -14,6 +14,7 @@ import {
 } from 'recharts';
 import '../styles/SmartPlantDashboard.css';
 
+
 const client = generateClient<Schema>({
     authMode: 'identityPool',
 });
@@ -126,6 +127,7 @@ const SmartPlantDashboard = () => {
                     </Card>
                 </Col>
             </Row>
+
         </div>
     );
 };
