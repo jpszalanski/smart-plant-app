@@ -19,7 +19,7 @@ const schema = a.schema({
     percentageSoilMoisture: a.float().required(),
     soilMoisture: a.float().required(),
     temperature: a.float().required(),
-    timestamp: a.timestamp().required(),
+    updatedAt: a.timestamp().required(),
   }).authorization((allow) => [allow.guest(), allow.authenticated('identityPool')]),
 
   PlantIdentificationData: a.model({
