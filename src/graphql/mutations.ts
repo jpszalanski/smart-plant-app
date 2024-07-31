@@ -73,14 +73,15 @@ export const createSmartPlantDataRealTime = /* GraphQL */ `mutation CreateSmartP
   $condition: ModelSmartPlantDataRealTimeConditionInput
 ) {
   createSmartPlantDataRealTime(input: $input, condition: $condition) {
-    deviceId
-    temperature
-    humidity
-    light
-    soilMoisture
-    createdAt
-    updatedAt
     id
+    deviceId
+    humidity
+    lightLevel
+    percentageSoilMoisture
+    soilMoisture
+    temperature
+    updatedAt
+    createdAt
     __typename
   }
 }
@@ -93,14 +94,15 @@ export const updateSmartPlantDataRealTime = /* GraphQL */ `mutation UpdateSmartP
   $condition: ModelSmartPlantDataRealTimeConditionInput
 ) {
   updateSmartPlantDataRealTime(input: $input, condition: $condition) {
-    deviceId
-    temperature
-    humidity
-    light
-    soilMoisture
-    createdAt
-    updatedAt
     id
+    deviceId
+    humidity
+    lightLevel
+    percentageSoilMoisture
+    soilMoisture
+    temperature
+    updatedAt
+    createdAt
     __typename
   }
 }
@@ -113,14 +115,15 @@ export const deleteSmartPlantDataRealTime = /* GraphQL */ `mutation DeleteSmartP
   $condition: ModelSmartPlantDataRealTimeConditionInput
 ) {
   deleteSmartPlantDataRealTime(input: $input, condition: $condition) {
-    deviceId
-    temperature
-    humidity
-    light
-    soilMoisture
-    createdAt
-    updatedAt
     id
+    deviceId
+    humidity
+    lightLevel
+    percentageSoilMoisture
+    soilMoisture
+    temperature
+    updatedAt
+    createdAt
     __typename
   }
 }

@@ -69,14 +69,15 @@ export const onCreateSmartPlantDataRealTime = /* GraphQL */ `subscription OnCrea
   $filter: ModelSubscriptionSmartPlantDataRealTimeFilterInput
 ) {
   onCreateSmartPlantDataRealTime(filter: $filter) {
-    deviceId
-    temperature
-    humidity
-    light
-    soilMoisture
-    createdAt
-    updatedAt
     id
+    deviceId
+    humidity
+    lightLevel
+    percentageSoilMoisture
+    soilMoisture
+    temperature
+    updatedAt
+    createdAt
     __typename
   }
 }
@@ -88,14 +89,15 @@ export const onUpdateSmartPlantDataRealTime = /* GraphQL */ `subscription OnUpda
   $filter: ModelSubscriptionSmartPlantDataRealTimeFilterInput
 ) {
   onUpdateSmartPlantDataRealTime(filter: $filter) {
-    deviceId
-    temperature
-    humidity
-    light
-    soilMoisture
-    createdAt
-    updatedAt
     id
+    deviceId
+    humidity
+    lightLevel
+    percentageSoilMoisture
+    soilMoisture
+    temperature
+    updatedAt
+    createdAt
     __typename
   }
 }
@@ -107,14 +109,15 @@ export const onDeleteSmartPlantDataRealTime = /* GraphQL */ `subscription OnDele
   $filter: ModelSubscriptionSmartPlantDataRealTimeFilterInput
 ) {
   onDeleteSmartPlantDataRealTime(filter: $filter) {
-    deviceId
-    temperature
-    humidity
-    light
-    soilMoisture
-    createdAt
-    updatedAt
     id
+    deviceId
+    humidity
+    lightLevel
+    percentageSoilMoisture
+    soilMoisture
+    temperature
+    updatedAt
+    createdAt
     __typename
   }
 }

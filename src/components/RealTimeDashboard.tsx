@@ -12,6 +12,7 @@ const client = generateClient<Schema>({
 });
 const { Title } = Typography;
 
+
 const RealTimeDashboard = () => {
     const [latestData, setLatestData] = useState<Schema['SmartPlantDataRealTime']['type'] | null>(null);
 
@@ -19,18 +20,17 @@ const RealTimeDashboard = () => {
         const fetchData = async () => {
             const data = await client.models.SmartPlantDataRealTime.list();
             if (data.data.length > 0) {
-                const sortedData = data.data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-                setLatestData(sortedData[0]);
+                setLatestData(data.data[0]);  // Assumindo que sempre terá apenas um item por device
             }
         };
+
 
         fetchData();
 
         const sub = client.models.SmartPlantDataRealTime.observeQuery().subscribe({
             next: ({ items }) => {
                 if (items.length > 0) {
-                    const sortedItems = items.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-                    setLatestData(sortedItems[0]);
+                    setLatestData(items[0]);  // Assumindo que sempre terá apenas um item por device
                 }
             },
             error: (error) => console.warn(error),

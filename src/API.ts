@@ -118,50 +118,52 @@ export type DeleteSmartPlantDataInput = {
 };
 
 export type CreateSmartPlantDataRealTimeInput = {
-  deviceId: string,
-  temperature: number,
-  humidity: number,
-  light: number,
-  soilMoisture: number,
-  createdAt: number,
-  updatedAt: number,
   id?: string | null,
+  deviceId: string,
+  humidity: number,
+  lightLevel: number,
+  percentageSoilMoisture: number,
+  soilMoisture: number,
+  temperature: number,
+  updatedAt: number,
 };
 
 export type ModelSmartPlantDataRealTimeConditionInput = {
   deviceId?: ModelStringInput | null,
-  temperature?: ModelFloatInput | null,
   humidity?: ModelFloatInput | null,
-  light?: ModelFloatInput | null,
+  lightLevel?: ModelFloatInput | null,
+  percentageSoilMoisture?: ModelFloatInput | null,
   soilMoisture?: ModelFloatInput | null,
-  createdAt?: ModelIntInput | null,
+  temperature?: ModelFloatInput | null,
   updatedAt?: ModelIntInput | null,
   and?: Array< ModelSmartPlantDataRealTimeConditionInput | null > | null,
   or?: Array< ModelSmartPlantDataRealTimeConditionInput | null > | null,
   not?: ModelSmartPlantDataRealTimeConditionInput | null,
+  createdAt?: ModelStringInput | null,
 };
 
 export type SmartPlantDataRealTime = {
   __typename: "SmartPlantDataRealTime",
-  deviceId: string,
-  temperature: number,
-  humidity: number,
-  light: number,
-  soilMoisture: number,
-  createdAt: number,
-  updatedAt: number,
   id: string,
+  deviceId: string,
+  humidity: number,
+  lightLevel: number,
+  percentageSoilMoisture: number,
+  soilMoisture: number,
+  temperature: number,
+  updatedAt: number,
+  createdAt: string,
 };
 
 export type UpdateSmartPlantDataRealTimeInput = {
-  deviceId?: string | null,
-  temperature?: number | null,
-  humidity?: number | null,
-  light?: number | null,
-  soilMoisture?: number | null,
-  createdAt?: number | null,
-  updatedAt?: number | null,
   id: string,
+  deviceId?: string | null,
+  humidity?: number | null,
+  lightLevel?: number | null,
+  percentageSoilMoisture?: number | null,
+  soilMoisture?: number | null,
+  temperature?: number | null,
+  updatedAt?: number | null,
 };
 
 export type DeleteSmartPlantDataRealTimeInput = {
@@ -280,18 +282,25 @@ export type ModelSmartPlantDataConnection = {
 };
 
 export type ModelSmartPlantDataRealTimeFilterInput = {
+  id?: ModelStringInput | null,
   deviceId?: ModelStringInput | null,
-  temperature?: ModelFloatInput | null,
   humidity?: ModelFloatInput | null,
-  light?: ModelFloatInput | null,
+  lightLevel?: ModelFloatInput | null,
+  percentageSoilMoisture?: ModelFloatInput | null,
   soilMoisture?: ModelFloatInput | null,
-  createdAt?: ModelIntInput | null,
+  temperature?: ModelFloatInput | null,
   updatedAt?: ModelIntInput | null,
-  id?: ModelIDInput | null,
+  createdAt?: ModelStringInput | null,
   and?: Array< ModelSmartPlantDataRealTimeFilterInput | null > | null,
   or?: Array< ModelSmartPlantDataRealTimeFilterInput | null > | null,
   not?: ModelSmartPlantDataRealTimeFilterInput | null,
 };
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
 
 export type ModelSmartPlantDataRealTimeConnection = {
   __typename: "ModelSmartPlantDataRealTimeConnection",
@@ -393,14 +402,15 @@ export type ModelSubscriptionIDInput = {
 };
 
 export type ModelSubscriptionSmartPlantDataRealTimeFilterInput = {
+  id?: ModelSubscriptionStringInput | null,
   deviceId?: ModelSubscriptionStringInput | null,
-  temperature?: ModelSubscriptionFloatInput | null,
   humidity?: ModelSubscriptionFloatInput | null,
-  light?: ModelSubscriptionFloatInput | null,
+  lightLevel?: ModelSubscriptionFloatInput | null,
+  percentageSoilMoisture?: ModelSubscriptionFloatInput | null,
   soilMoisture?: ModelSubscriptionFloatInput | null,
-  createdAt?: ModelSubscriptionIntInput | null,
+  temperature?: ModelSubscriptionFloatInput | null,
   updatedAt?: ModelSubscriptionIntInput | null,
-  id?: ModelSubscriptionIDInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionSmartPlantDataRealTimeFilterInput | null > | null,
   or?: Array< ModelSubscriptionSmartPlantDataRealTimeFilterInput | null > | null,
 };
@@ -489,14 +499,15 @@ export type CreateSmartPlantDataRealTimeMutationVariables = {
 export type CreateSmartPlantDataRealTimeMutation = {
   createSmartPlantDataRealTime?:  {
     __typename: "SmartPlantDataRealTime",
-    deviceId: string,
-    temperature: number,
-    humidity: number,
-    light: number,
-    soilMoisture: number,
-    createdAt: number,
-    updatedAt: number,
     id: string,
+    deviceId: string,
+    humidity: number,
+    lightLevel: number,
+    percentageSoilMoisture: number,
+    soilMoisture: number,
+    temperature: number,
+    updatedAt: number,
+    createdAt: string,
   } | null,
 };
 
@@ -508,14 +519,15 @@ export type UpdateSmartPlantDataRealTimeMutationVariables = {
 export type UpdateSmartPlantDataRealTimeMutation = {
   updateSmartPlantDataRealTime?:  {
     __typename: "SmartPlantDataRealTime",
-    deviceId: string,
-    temperature: number,
-    humidity: number,
-    light: number,
-    soilMoisture: number,
-    createdAt: number,
-    updatedAt: number,
     id: string,
+    deviceId: string,
+    humidity: number,
+    lightLevel: number,
+    percentageSoilMoisture: number,
+    soilMoisture: number,
+    temperature: number,
+    updatedAt: number,
+    createdAt: string,
   } | null,
 };
 
@@ -527,14 +539,15 @@ export type DeleteSmartPlantDataRealTimeMutationVariables = {
 export type DeleteSmartPlantDataRealTimeMutation = {
   deleteSmartPlantDataRealTime?:  {
     __typename: "SmartPlantDataRealTime",
-    deviceId: string,
-    temperature: number,
-    humidity: number,
-    light: number,
-    soilMoisture: number,
-    createdAt: number,
-    updatedAt: number,
     id: string,
+    deviceId: string,
+    humidity: number,
+    lightLevel: number,
+    percentageSoilMoisture: number,
+    soilMoisture: number,
+    temperature: number,
+    updatedAt: number,
+    createdAt: string,
   } | null,
 };
 
@@ -662,21 +675,24 @@ export type GetSmartPlantDataRealTimeQueryVariables = {
 export type GetSmartPlantDataRealTimeQuery = {
   getSmartPlantDataRealTime?:  {
     __typename: "SmartPlantDataRealTime",
-    deviceId: string,
-    temperature: number,
-    humidity: number,
-    light: number,
-    soilMoisture: number,
-    createdAt: number,
-    updatedAt: number,
     id: string,
+    deviceId: string,
+    humidity: number,
+    lightLevel: number,
+    percentageSoilMoisture: number,
+    soilMoisture: number,
+    temperature: number,
+    updatedAt: number,
+    createdAt: string,
   } | null,
 };
 
 export type ListSmartPlantDataRealTimesQueryVariables = {
+  id?: string | null,
   filter?: ModelSmartPlantDataRealTimeFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
 };
 
 export type ListSmartPlantDataRealTimesQuery = {
@@ -684,14 +700,15 @@ export type ListSmartPlantDataRealTimesQuery = {
     __typename: "ModelSmartPlantDataRealTimeConnection",
     items:  Array< {
       __typename: "SmartPlantDataRealTime",
-      deviceId: string,
-      temperature: number,
-      humidity: number,
-      light: number,
-      soilMoisture: number,
-      createdAt: number,
-      updatedAt: number,
       id: string,
+      deviceId: string,
+      humidity: number,
+      lightLevel: number,
+      percentageSoilMoisture: number,
+      soilMoisture: number,
+      temperature: number,
+      updatedAt: number,
+      createdAt: string,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -812,14 +829,15 @@ export type OnCreateSmartPlantDataRealTimeSubscriptionVariables = {
 export type OnCreateSmartPlantDataRealTimeSubscription = {
   onCreateSmartPlantDataRealTime?:  {
     __typename: "SmartPlantDataRealTime",
-    deviceId: string,
-    temperature: number,
-    humidity: number,
-    light: number,
-    soilMoisture: number,
-    createdAt: number,
-    updatedAt: number,
     id: string,
+    deviceId: string,
+    humidity: number,
+    lightLevel: number,
+    percentageSoilMoisture: number,
+    soilMoisture: number,
+    temperature: number,
+    updatedAt: number,
+    createdAt: string,
   } | null,
 };
 
@@ -830,14 +848,15 @@ export type OnUpdateSmartPlantDataRealTimeSubscriptionVariables = {
 export type OnUpdateSmartPlantDataRealTimeSubscription = {
   onUpdateSmartPlantDataRealTime?:  {
     __typename: "SmartPlantDataRealTime",
-    deviceId: string,
-    temperature: number,
-    humidity: number,
-    light: number,
-    soilMoisture: number,
-    createdAt: number,
-    updatedAt: number,
     id: string,
+    deviceId: string,
+    humidity: number,
+    lightLevel: number,
+    percentageSoilMoisture: number,
+    soilMoisture: number,
+    temperature: number,
+    updatedAt: number,
+    createdAt: string,
   } | null,
 };
 
@@ -848,14 +867,15 @@ export type OnDeleteSmartPlantDataRealTimeSubscriptionVariables = {
 export type OnDeleteSmartPlantDataRealTimeSubscription = {
   onDeleteSmartPlantDataRealTime?:  {
     __typename: "SmartPlantDataRealTime",
-    deviceId: string,
-    temperature: number,
-    humidity: number,
-    light: number,
-    soilMoisture: number,
-    createdAt: number,
-    updatedAt: number,
     id: string,
+    deviceId: string,
+    humidity: number,
+    lightLevel: number,
+    percentageSoilMoisture: number,
+    soilMoisture: number,
+    temperature: number,
+    updatedAt: number,
+    createdAt: string,
   } | null,
 };
 

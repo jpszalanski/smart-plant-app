@@ -50,16 +50,17 @@ export const listSmartPlantData = /* GraphQL */ `query ListSmartPlantData(
   APITypes.ListSmartPlantDataQueryVariables,
   APITypes.ListSmartPlantDataQuery
 >;
-export const getSmartPlantDataRealTime = /* GraphQL */ `query GetSmartPlantDataRealTime($id: ID!) {
+export const getSmartPlantDataRealTime = /* GraphQL */ `query GetSmartPlantDataRealTime($id: String!) {
   getSmartPlantDataRealTime(id: $id) {
-    deviceId
-    temperature
-    humidity
-    light
-    soilMoisture
-    createdAt
-    updatedAt
     id
+    deviceId
+    humidity
+    lightLevel
+    percentageSoilMoisture
+    soilMoisture
+    temperature
+    updatedAt
+    createdAt
     __typename
   }
 }
@@ -68,24 +69,29 @@ export const getSmartPlantDataRealTime = /* GraphQL */ `query GetSmartPlantDataR
   APITypes.GetSmartPlantDataRealTimeQuery
 >;
 export const listSmartPlantDataRealTimes = /* GraphQL */ `query ListSmartPlantDataRealTimes(
+  $id: String
   $filter: ModelSmartPlantDataRealTimeFilterInput
   $limit: Int
   $nextToken: String
+  $sortDirection: ModelSortDirection
 ) {
   listSmartPlantDataRealTimes(
+    id: $id
     filter: $filter
     limit: $limit
     nextToken: $nextToken
+    sortDirection: $sortDirection
   ) {
     items {
-      deviceId
-      temperature
-      humidity
-      light
-      soilMoisture
-      createdAt
-      updatedAt
       id
+      deviceId
+      humidity
+      lightLevel
+      percentageSoilMoisture
+      soilMoisture
+      temperature
+      updatedAt
+      createdAt
       __typename
     }
     nextToken
