@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Row, Col, Card, Typography, Space } from 'antd';
+import { Row, Col, Typography, Space } from 'antd';
+import Gauge from 'react-gauge-chart';
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '../../amplify/data/resource.ts';
 import '../styles/RealTimeDashboard.css';
 import SmartPlantDashboard from '../components/SmartPlantDashboard';
 import ControlButton from '../components/ControlButton';
 
-//aqui
+const { Title, Text } = Typography;
+
+
 const client = generateClient<Schema>({
     authMode: 'identityPool',
 });
-const { Title } = Typography;
+
 
 
 const RealTimeDashboard = () => {
@@ -70,36 +73,68 @@ const RealTimeDashboard = () => {
             <Title level={2} className="dashboard-title">Smart Plant Dashboard</Title>
             <Row gutter={16}>
                 <Col span={6}>
-                    <Card className="sensor-card">
+                    <div className="gauge-card">
                         <Title level={4}>Temperatura</Title>
-                        <div className="sensor-value">{latestData?.temperature ?? 'N/A'}°C</div>
-                        <Typography.Text type="secondary">{latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}</Typography.Text>
-                    </Card>
+                        <Gauge 
+                            id="temperature-gauge"
+                            nrOfLevels={20}
+                            percent={latestData?.temperature ? latestData.temperature / 100 : 0} 
+                            textColor="#000000"
+                            formatTextValue={(value: number) => `${(value).toFixed(1)}°C`} 
+                        />
+                        <Text type="secondary">
+                            {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
+                        </Text>
+                    </div>
                 </Col>
                 <Col span={6}>
-                    <Card className="sensor-card">
+                    <div className="gauge-card">
                         <Title level={4}>Umidade</Title>
-                        <div className="sensor-value">{latestData?.humidity ?? 'N/A'}%</div>
-                        <Typography.Text type="secondary">{latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}</Typography.Text>
-                    </Card>
+                        <Gauge 
+                            id="humidity-gauge"
+                            nrOfLevels={20}
+                            percent={latestData?.humidity ? latestData.humidity / 100 : 0} 
+                            textColor="#000000"
+                            formatTextValue={(value: number) => `${(value).toFixed(1)}%`} 
+                        />
+                        <Text type="secondary">
+                            {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
+                        </Text>
+                    </div>
                 </Col>
                 <Col span={6}>
-                    <Card className="sensor-card">
-                        <Title level={4}>Luminosidade</Title>
-                        <div className="sensor-value">{latestData?.lightLevel ?? 'N/A'} lux</div>
-                        <Typography.Text type="secondary">{latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}</Typography.Text>
-                    </Card>
+                    <div className="gauge-card">
+                    <Title level={4}>Luminosidade</Title>
+                        <Gauge 
+                            id="light-gauge"
+                            nrOfLevels={20}
+                            percent={latestData?.lightLevel ? latestData.lightLevel / 4096 : 0} 
+                            textColor="#000000"
+                            formatTextValue={(value: number) => `${(value * 4096/100).toFixed(0)} lux`} 
+                        />
+                        <Text type="secondary">
+                            {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
+                        </Text>
+                    </div>
                 </Col>
                 <Col span={6}>
-                    <Card className="sensor-card">
+                    <div className="gauge-card">
                         <Title level={4}>Umidade do Solo</Title>
-                        <div className="sensor-value">{latestData?.soilMoisture ?? 'N/A'}%</div>
-                        <Typography.Text type="secondary">{latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}</Typography.Text>
+                        <Gauge 
+                            id="soil-moisture-gauge"
+                            nrOfLevels={20}
+                            percent={latestData?.soilMoisture ? latestData.soilMoisture / 100 : 0} 
+                            textColor="#000000"
+                            formatTextValue={(value: number) => `${(value).toFixed(1)}%`} 
+                        />
+                        <Text type="secondary">
+                            {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
+                        </Text>
                         <Space direction="vertical" style={{ marginTop: '10px' }}>
                             <ControlButton action={true} label="Acionar Irrigação" />
                             <ControlButton action={false} label="Desligar Irrigação" />
                         </Space>
-                    </Card>
+                    </div>
                 </Col>
             </Row>
             <div className="dashboard-charts">
