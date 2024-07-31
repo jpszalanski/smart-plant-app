@@ -1,0 +1,470 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type ModelPlantIdentificationDataConnection {
+  items: [PlantIdentificationData]!
+  nextToken: String
+}
+
+type ModelSmartPlantDataConnection {
+  items: [SmartPlantData]!
+  nextToken: String
+}
+
+type ModelSmartPlantDataRealTimeConnection {
+  items: [SmartPlantDataRealTime]!
+  nextToken: String
+}
+
+type Mutation {
+  createPlantIdentificationData(condition: ModelPlantIdentificationDataConditionInput, input: CreatePlantIdentificationDataInput!): PlantIdentificationData
+  createSmartPlantData(condition: ModelSmartPlantDataConditionInput, input: CreateSmartPlantDataInput!): SmartPlantData
+  createSmartPlantDataRealTime(condition: ModelSmartPlantDataRealTimeConditionInput, input: CreateSmartPlantDataRealTimeInput!): SmartPlantDataRealTime
+  deletePlantIdentificationData(condition: ModelPlantIdentificationDataConditionInput, input: DeletePlantIdentificationDataInput!): PlantIdentificationData
+  deleteSmartPlantData(condition: ModelSmartPlantDataConditionInput, input: DeleteSmartPlantDataInput!): SmartPlantData
+  deleteSmartPlantDataRealTime(condition: ModelSmartPlantDataRealTimeConditionInput, input: DeleteSmartPlantDataRealTimeInput!): SmartPlantDataRealTime
+  updatePlantIdentificationData(condition: ModelPlantIdentificationDataConditionInput, input: UpdatePlantIdentificationDataInput!): PlantIdentificationData
+  updateSmartPlantData(condition: ModelSmartPlantDataConditionInput, input: UpdateSmartPlantDataInput!): SmartPlantData
+  updateSmartPlantDataRealTime(condition: ModelSmartPlantDataRealTimeConditionInput, input: UpdateSmartPlantDataRealTimeInput!): SmartPlantDataRealTime
+}
+
+type PlantIdentificationData {
+  createdAt: AWSTimestamp!
+  especie: String!
+  id: ID!
+  iluminanciaMax: Float!
+  iluminanciaMin: Float!
+  nome: String!
+  recomendacoes: String!
+  temperaturaMax: Float!
+  temperaturaMin: Float!
+  umidadeArMax: Float!
+  umidadeArMin: Float!
+  umidadeSoloMax: Float!
+  umidadeSoloMin: Float!
+  updatedAt: AWSTimestamp!
+}
+
+type Query {
+  getPlantIdentificationData(id: ID!): PlantIdentificationData
+  getSmartPlantData(id: ID!): SmartPlantData
+  getSmartPlantDataRealTime(id: ID!): SmartPlantDataRealTime
+  listPlantIdentificationData(filter: ModelPlantIdentificationDataFilterInput, limit: Int, nextToken: String): ModelPlantIdentificationDataConnection
+  listSmartPlantData(filter: ModelSmartPlantDataFilterInput, limit: Int, nextToken: String): ModelSmartPlantDataConnection
+  listSmartPlantDataRealTimes(filter: ModelSmartPlantDataRealTimeFilterInput, limit: Int, nextToken: String): ModelSmartPlantDataRealTimeConnection
+}
+
+type SmartPlantData {
+  createdAt: AWSTimestamp!
+  deviceId: String!
+  humidity: Float!
+  id: ID!
+  light: Float!
+  soilMoisture: Float!
+  temperature: Float!
+  updatedAt: AWSTimestamp!
+}
+
+type SmartPlantDataRealTime {
+  createdAt: AWSTimestamp!
+  deviceId: String!
+  humidity: Float!
+  id: ID!
+  light: Float!
+  soilMoisture: Float!
+  temperature: Float!
+  updatedAt: AWSTimestamp!
+}
+
+type Subscription {
+  onCreatePlantIdentificationData(filter: ModelSubscriptionPlantIdentificationDataFilterInput): PlantIdentificationData @aws_subscribe(mutations : ["createPlantIdentificationData"])
+  onCreateSmartPlantData(filter: ModelSubscriptionSmartPlantDataFilterInput): SmartPlantData @aws_subscribe(mutations : ["createSmartPlantData"])
+  onCreateSmartPlantDataRealTime(filter: ModelSubscriptionSmartPlantDataRealTimeFilterInput): SmartPlantDataRealTime @aws_subscribe(mutations : ["createSmartPlantDataRealTime"])
+  onDeletePlantIdentificationData(filter: ModelSubscriptionPlantIdentificationDataFilterInput): PlantIdentificationData @aws_subscribe(mutations : ["deletePlantIdentificationData"])
+  onDeleteSmartPlantData(filter: ModelSubscriptionSmartPlantDataFilterInput): SmartPlantData @aws_subscribe(mutations : ["deleteSmartPlantData"])
+  onDeleteSmartPlantDataRealTime(filter: ModelSubscriptionSmartPlantDataRealTimeFilterInput): SmartPlantDataRealTime @aws_subscribe(mutations : ["deleteSmartPlantDataRealTime"])
+  onUpdatePlantIdentificationData(filter: ModelSubscriptionPlantIdentificationDataFilterInput): PlantIdentificationData @aws_subscribe(mutations : ["updatePlantIdentificationData"])
+  onUpdateSmartPlantData(filter: ModelSubscriptionSmartPlantDataFilterInput): SmartPlantData @aws_subscribe(mutations : ["updateSmartPlantData"])
+  onUpdateSmartPlantDataRealTime(filter: ModelSubscriptionSmartPlantDataRealTimeFilterInput): SmartPlantDataRealTime @aws_subscribe(mutations : ["updateSmartPlantDataRealTime"])
+}
+
+enum ModelAttributeTypes {
+  _null
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+input CreatePlantIdentificationDataInput {
+  createdAt: AWSTimestamp!
+  especie: String!
+  id: ID
+  iluminanciaMax: Float!
+  iluminanciaMin: Float!
+  nome: String!
+  recomendacoes: String!
+  temperaturaMax: Float!
+  temperaturaMin: Float!
+  umidadeArMax: Float!
+  umidadeArMin: Float!
+  umidadeSoloMax: Float!
+  umidadeSoloMin: Float!
+  updatedAt: AWSTimestamp!
+}
+
+input CreateSmartPlantDataInput {
+  createdAt: AWSTimestamp!
+  deviceId: String!
+  humidity: Float!
+  id: ID
+  light: Float!
+  soilMoisture: Float!
+  temperature: Float!
+  updatedAt: AWSTimestamp!
+}
+
+input CreateSmartPlantDataRealTimeInput {
+  createdAt: AWSTimestamp!
+  deviceId: String!
+  humidity: Float!
+  id: ID
+  light: Float!
+  soilMoisture: Float!
+  temperature: Float!
+  updatedAt: AWSTimestamp!
+}
+
+input DeletePlantIdentificationDataInput {
+  id: ID!
+}
+
+input DeleteSmartPlantDataInput {
+  id: ID!
+}
+
+input DeleteSmartPlantDataRealTimeInput {
+  id: ID!
+}
+
+input ModelBooleanInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelFloatInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+}
+
+input ModelIDInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelPlantIdentificationDataConditionInput {
+  and: [ModelPlantIdentificationDataConditionInput]
+  createdAt: ModelIntInput
+  especie: ModelStringInput
+  iluminanciaMax: ModelFloatInput
+  iluminanciaMin: ModelFloatInput
+  nome: ModelStringInput
+  not: ModelPlantIdentificationDataConditionInput
+  or: [ModelPlantIdentificationDataConditionInput]
+  recomendacoes: ModelStringInput
+  temperaturaMax: ModelFloatInput
+  temperaturaMin: ModelFloatInput
+  umidadeArMax: ModelFloatInput
+  umidadeArMin: ModelFloatInput
+  umidadeSoloMax: ModelFloatInput
+  umidadeSoloMin: ModelFloatInput
+  updatedAt: ModelIntInput
+}
+
+input ModelPlantIdentificationDataFilterInput {
+  and: [ModelPlantIdentificationDataFilterInput]
+  createdAt: ModelIntInput
+  especie: ModelStringInput
+  id: ModelIDInput
+  iluminanciaMax: ModelFloatInput
+  iluminanciaMin: ModelFloatInput
+  nome: ModelStringInput
+  not: ModelPlantIdentificationDataFilterInput
+  or: [ModelPlantIdentificationDataFilterInput]
+  recomendacoes: ModelStringInput
+  temperaturaMax: ModelFloatInput
+  temperaturaMin: ModelFloatInput
+  umidadeArMax: ModelFloatInput
+  umidadeArMin: ModelFloatInput
+  umidadeSoloMax: ModelFloatInput
+  umidadeSoloMin: ModelFloatInput
+  updatedAt: ModelIntInput
+}
+
+input ModelSizeInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelSmartPlantDataConditionInput {
+  and: [ModelSmartPlantDataConditionInput]
+  createdAt: ModelIntInput
+  deviceId: ModelStringInput
+  humidity: ModelFloatInput
+  light: ModelFloatInput
+  not: ModelSmartPlantDataConditionInput
+  or: [ModelSmartPlantDataConditionInput]
+  soilMoisture: ModelFloatInput
+  temperature: ModelFloatInput
+  updatedAt: ModelIntInput
+}
+
+input ModelSmartPlantDataFilterInput {
+  and: [ModelSmartPlantDataFilterInput]
+  createdAt: ModelIntInput
+  deviceId: ModelStringInput
+  humidity: ModelFloatInput
+  id: ModelIDInput
+  light: ModelFloatInput
+  not: ModelSmartPlantDataFilterInput
+  or: [ModelSmartPlantDataFilterInput]
+  soilMoisture: ModelFloatInput
+  temperature: ModelFloatInput
+  updatedAt: ModelIntInput
+}
+
+input ModelSmartPlantDataRealTimeConditionInput {
+  and: [ModelSmartPlantDataRealTimeConditionInput]
+  createdAt: ModelIntInput
+  deviceId: ModelStringInput
+  humidity: ModelFloatInput
+  light: ModelFloatInput
+  not: ModelSmartPlantDataRealTimeConditionInput
+  or: [ModelSmartPlantDataRealTimeConditionInput]
+  soilMoisture: ModelFloatInput
+  temperature: ModelFloatInput
+  updatedAt: ModelIntInput
+}
+
+input ModelSmartPlantDataRealTimeFilterInput {
+  and: [ModelSmartPlantDataRealTimeFilterInput]
+  createdAt: ModelIntInput
+  deviceId: ModelStringInput
+  humidity: ModelFloatInput
+  id: ModelIDInput
+  light: ModelFloatInput
+  not: ModelSmartPlantDataRealTimeFilterInput
+  or: [ModelSmartPlantDataRealTimeFilterInput]
+  soilMoisture: ModelFloatInput
+  temperature: ModelFloatInput
+  updatedAt: ModelIntInput
+}
+
+input ModelStringInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionBooleanInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelSubscriptionFloatInput {
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  in: [Float]
+  le: Float
+  lt: Float
+  ne: Float
+  notIn: [Float]
+}
+
+input ModelSubscriptionIDInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  in: [ID]
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  notIn: [ID]
+}
+
+input ModelSubscriptionIntInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  in: [Int]
+  le: Int
+  lt: Int
+  ne: Int
+  notIn: [Int]
+}
+
+input ModelSubscriptionPlantIdentificationDataFilterInput {
+  and: [ModelSubscriptionPlantIdentificationDataFilterInput]
+  createdAt: ModelSubscriptionIntInput
+  especie: ModelSubscriptionStringInput
+  id: ModelSubscriptionIDInput
+  iluminanciaMax: ModelSubscriptionFloatInput
+  iluminanciaMin: ModelSubscriptionFloatInput
+  nome: ModelSubscriptionStringInput
+  or: [ModelSubscriptionPlantIdentificationDataFilterInput]
+  recomendacoes: ModelSubscriptionStringInput
+  temperaturaMax: ModelSubscriptionFloatInput
+  temperaturaMin: ModelSubscriptionFloatInput
+  umidadeArMax: ModelSubscriptionFloatInput
+  umidadeArMin: ModelSubscriptionFloatInput
+  umidadeSoloMax: ModelSubscriptionFloatInput
+  umidadeSoloMin: ModelSubscriptionFloatInput
+  updatedAt: ModelSubscriptionIntInput
+}
+
+input ModelSubscriptionSmartPlantDataFilterInput {
+  and: [ModelSubscriptionSmartPlantDataFilterInput]
+  createdAt: ModelSubscriptionIntInput
+  deviceId: ModelSubscriptionStringInput
+  humidity: ModelSubscriptionFloatInput
+  id: ModelSubscriptionIDInput
+  light: ModelSubscriptionFloatInput
+  or: [ModelSubscriptionSmartPlantDataFilterInput]
+  soilMoisture: ModelSubscriptionFloatInput
+  temperature: ModelSubscriptionFloatInput
+  updatedAt: ModelSubscriptionIntInput
+}
+
+input ModelSubscriptionSmartPlantDataRealTimeFilterInput {
+  and: [ModelSubscriptionSmartPlantDataRealTimeFilterInput]
+  createdAt: ModelSubscriptionIntInput
+  deviceId: ModelSubscriptionStringInput
+  humidity: ModelSubscriptionFloatInput
+  id: ModelSubscriptionIDInput
+  light: ModelSubscriptionFloatInput
+  or: [ModelSubscriptionSmartPlantDataRealTimeFilterInput]
+  soilMoisture: ModelSubscriptionFloatInput
+  temperature: ModelSubscriptionFloatInput
+  updatedAt: ModelSubscriptionIntInput
+}
+
+input ModelSubscriptionStringInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  in: [String]
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  notIn: [String]
+}
+
+input UpdatePlantIdentificationDataInput {
+  createdAt: AWSTimestamp
+  especie: String
+  id: ID!
+  iluminanciaMax: Float
+  iluminanciaMin: Float
+  nome: String
+  recomendacoes: String
+  temperaturaMax: Float
+  temperaturaMin: Float
+  umidadeArMax: Float
+  umidadeArMin: Float
+  umidadeSoloMax: Float
+  umidadeSoloMin: Float
+  updatedAt: AWSTimestamp
+}
+
+input UpdateSmartPlantDataInput {
+  createdAt: AWSTimestamp
+  deviceId: String
+  humidity: Float
+  id: ID!
+  light: Float
+  soilMoisture: Float
+  temperature: Float
+  updatedAt: AWSTimestamp
+}
+
+input UpdateSmartPlantDataRealTimeInput {
+  createdAt: AWSTimestamp
+  deviceId: String
+  humidity: Float
+  id: ID!
+  light: Float
+  soilMoisture: Float
+  temperature: Float
+  updatedAt: AWSTimestamp
+}
