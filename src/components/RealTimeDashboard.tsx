@@ -13,11 +13,11 @@ const client = generateClient<Schema>({
 const { Title } = Typography;
 
 const RealTimeDashboard = () => {
-    const [latestData, setLatestData] = useState<Schema['SmartPlantData']['type'] | null>(null);
+    const [latestData, setLatestData] = useState<Schema['SmartPlantDataRealTime']['type'] | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await client.models.SmartPlantData.list();
+            const data = await client.models.SmartPlantDataRealTime.list();
             if (data.data.length > 0) {
                 const sortedData = data.data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
                 setLatestData(sortedData[0]);
@@ -26,7 +26,7 @@ const RealTimeDashboard = () => {
 
         fetchData();
 
-        const sub = client.models.SmartPlantData.observeQuery().subscribe({
+        const sub = client.models.SmartPlantDataRealTime.observeQuery().subscribe({
             next: ({ items }) => {
                 if (items.length > 0) {
                     const sortedItems = items.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
