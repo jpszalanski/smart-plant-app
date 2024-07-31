@@ -295,13 +295,6 @@ export const schema: Schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "percentageSoilMoisture": {
-                    "name": "percentageSoilMoisture",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "soilMoisture": {
                     "name": "soilMoisture",
                     "isArray": false,
@@ -327,5 +320,5 @@ export const schema: Schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "ca2abf09c491c47ea122b0a142478901"
+    "version": "1bd38ae7f58e7708b09def041007e1a6"
 };
