@@ -1,7 +1,10 @@
+
+
 .dashboard-container {
     padding: 24px;
     background-color: #f0f2f5;
-    
+
+
     
 }
 
@@ -23,6 +26,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+
 }
 
 .sensor-value {

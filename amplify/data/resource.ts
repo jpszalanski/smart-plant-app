@@ -11,6 +11,16 @@ const schema = a.schema({
     updatedAt: a.timestamp().required(),
   }).authorization((allow) => [allow.guest(), allow.authenticated('identityPool')]),
 
+    SmartPlantDataRealTime: a.model({
+      deviceId: a.string().required(),
+      temperature: a.float().required(),
+      humidity: a.float().required(),
+      light: a.float().required(),
+      soilMoisture: a.float().required(),
+      createdAt: a.timestamp().required(),
+      updatedAt: a.timestamp().required(),
+    }).authorization((allow) => [allow.guest(), allow.authenticated('identityPool')]),
+
   PlantIdentificationData: a.model({
     nome: a.string().required(),
     especie: a.string().required(),
