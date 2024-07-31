@@ -63,7 +63,7 @@ const RealTimeDashboard = () => {
                 <Col span={6}>
                     <Card className="sensor-card">
                         <Title level={4}>Luminosidade</Title>
-                        <div className="sensor-value">{latestData?.light ?? 'N/A'} lux</div>
+                        <div className="sensor-value">{latestData?.lightLevel ?? 'N/A'} lux</div>
                         <Typography.Text type="secondary">{latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}</Typography.Text>
                     </Card>
                 </Col>
