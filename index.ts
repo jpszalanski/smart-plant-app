@@ -134,7 +134,8 @@ type EagerSmartPlantDataRealTimeModel = {
   readonly deviceId: string;
   readonly humidity: number;
   readonly id: string;
-  readonly light: number;
+  readonly lightLevel: number;
+  readonly percentageSoilMoisture: number;
   readonly soilMoisture: number;
   readonly temperature: number;
   readonly updatedAt: number;
@@ -145,7 +146,8 @@ type LazySmartPlantDataRealTimeModel = {
   readonly deviceId: string;
   readonly humidity: number;
   readonly id: string;
-  readonly light: number;
+  readonly lightLevel: number;
+  readonly percentageSoilMoisture: number;
   readonly soilMoisture: number;
   readonly temperature: number;
   readonly updatedAt: number;

@@ -6,7 +6,7 @@ import '../styles/RealTimeDashboard.css';
 import SmartPlantDashboard from '../components/SmartPlantDashboard';
 import ControlButton from '../components/ControlButton';
 
-
+//aqui
 const client = generateClient<Schema>({
     authMode: 'identityPool',
 });
@@ -27,6 +27,8 @@ const RealTimeDashboard = () => {
 
         fetchData();
 
+
+
         const sub = client.models.SmartPlantDataRealTime.observeQuery().subscribe({
             next: ({ items }) => {
                 if (items.length > 0) {
@@ -36,8 +38,29 @@ const RealTimeDashboard = () => {
             error: (error) => console.warn(error),
         });
 
+        // Subscribe to creation 
+        const createSub = client.models.SmartPlantDataRealTime.onCreate().subscribe({
+            next: (data) => console.log(data),
+            error: (error) => console.warn(error),
+        });
+
+        // Subscribe to update 
+        const updateSub = client.models.SmartPlantDataRealTime.onUpdate().subscribe({
+            next: (data) => console.log(data),
+            error: (error) => console.warn(error),
+        });
+
+        // Subscribe to deletion 
+        const deleteSub = client.models.SmartPlantDataRealTime.onDelete().subscribe({
+            next: (data) => console.log(data),
+            error: (error) => console.warn(error),
+        });
+
         return () => {
             sub.unsubscribe();
+            createSub.unsubscribe();
+            updateSub.unsubscribe();
+            deleteSub.unsubscribe();
         };
 
     }, []);

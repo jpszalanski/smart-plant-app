@@ -80,8 +80,8 @@ export const createSmartPlantDataRealTime = /* GraphQL */ `mutation CreateSmartP
     percentageSoilMoisture
     soilMoisture
     temperature
-    updatedAt
     createdAt
+    updatedAt
     __typename
   }
 }
@@ -101,8 +101,8 @@ export const updateSmartPlantDataRealTime = /* GraphQL */ `mutation UpdateSmartP
     percentageSoilMoisture
     soilMoisture
     temperature
-    updatedAt
     createdAt
+    updatedAt
     __typename
   }
 }
@@ -122,8 +122,8 @@ export const deleteSmartPlantDataRealTime = /* GraphQL */ `mutation DeleteSmartP
     percentageSoilMoisture
     soilMoisture
     temperature
-    updatedAt
     createdAt
+    updatedAt
     __typename
   }
 }

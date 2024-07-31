@@ -284,12 +284,19 @@ export const schema: Schema = {
                 "id": {
                     "name": "id",
                     "isArray": false,
-                    "type": "ID",
+                    "type": "String",
                     "isRequired": true,
                     "attributes": []
                 },
-                "light": {
-                    "name": "light",
+                "lightLevel": {
+                    "name": "lightLevel",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "percentageSoilMoisture": {
+                    "name": "percentageSoilMoisture",
                     "isArray": false,
                     "type": "Float",
                     "isRequired": true,
@@ -320,5 +327,5 @@ export const schema: Schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "fbbf5f02ba846b8e1822e5e1202906f5"
+    "version": "ca2abf09c491c47ea122b0a142478901"
 };

@@ -16,7 +16,6 @@ const schema = a.schema({
     deviceId: a.string().required(),
     humidity: a.float().required(),
     lightLevel: a.float().required(),
-    percentageSoilMoisture: a.float().required(),
     soilMoisture: a.float().required(),
     temperature: a.float().required(),
     createdAt: a.timestamp().required(),

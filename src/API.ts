@@ -125,6 +125,7 @@ export type CreateSmartPlantDataRealTimeInput = {
   percentageSoilMoisture: number,
   soilMoisture: number,
   temperature: number,
+  createdAt: number,
   updatedAt: number,
 };
 
@@ -135,11 +136,11 @@ export type ModelSmartPlantDataRealTimeConditionInput = {
   percentageSoilMoisture?: ModelFloatInput | null,
   soilMoisture?: ModelFloatInput | null,
   temperature?: ModelFloatInput | null,
+  createdAt?: ModelIntInput | null,
   updatedAt?: ModelIntInput | null,
   and?: Array< ModelSmartPlantDataRealTimeConditionInput | null > | null,
   or?: Array< ModelSmartPlantDataRealTimeConditionInput | null > | null,
   not?: ModelSmartPlantDataRealTimeConditionInput | null,
-  createdAt?: ModelStringInput | null,
 };
 
 export type SmartPlantDataRealTime = {
@@ -151,8 +152,8 @@ export type SmartPlantDataRealTime = {
   percentageSoilMoisture: number,
   soilMoisture: number,
   temperature: number,
+  createdAt: number,
   updatedAt: number,
-  createdAt: string,
 };
 
 export type UpdateSmartPlantDataRealTimeInput = {
@@ -163,6 +164,7 @@ export type UpdateSmartPlantDataRealTimeInput = {
   percentageSoilMoisture?: number | null,
   soilMoisture?: number | null,
   temperature?: number | null,
+  createdAt?: number | null,
   updatedAt?: number | null,
 };
 
@@ -289,8 +291,8 @@ export type ModelSmartPlantDataRealTimeFilterInput = {
   percentageSoilMoisture?: ModelFloatInput | null,
   soilMoisture?: ModelFloatInput | null,
   temperature?: ModelFloatInput | null,
+  createdAt?: ModelIntInput | null,
   updatedAt?: ModelIntInput | null,
-  createdAt?: ModelStringInput | null,
   and?: Array< ModelSmartPlantDataRealTimeFilterInput | null > | null,
   or?: Array< ModelSmartPlantDataRealTimeFilterInput | null > | null,
   not?: ModelSmartPlantDataRealTimeFilterInput | null,
@@ -409,8 +411,8 @@ export type ModelSubscriptionSmartPlantDataRealTimeFilterInput = {
   percentageSoilMoisture?: ModelSubscriptionFloatInput | null,
   soilMoisture?: ModelSubscriptionFloatInput | null,
   temperature?: ModelSubscriptionFloatInput | null,
+  createdAt?: ModelSubscriptionIntInput | null,
   updatedAt?: ModelSubscriptionIntInput | null,
-  createdAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionSmartPlantDataRealTimeFilterInput | null > | null,
   or?: Array< ModelSubscriptionSmartPlantDataRealTimeFilterInput | null > | null,
 };
@@ -506,8 +508,8 @@ export type CreateSmartPlantDataRealTimeMutation = {
     percentageSoilMoisture: number,
     soilMoisture: number,
     temperature: number,
+    createdAt: number,
     updatedAt: number,
-    createdAt: string,
   } | null,
 };
 
@@ -526,8 +528,8 @@ export type UpdateSmartPlantDataRealTimeMutation = {
     percentageSoilMoisture: number,
     soilMoisture: number,
     temperature: number,
+    createdAt: number,
     updatedAt: number,
-    createdAt: string,
   } | null,
 };
 
@@ -546,8 +548,8 @@ export type DeleteSmartPlantDataRealTimeMutation = {
     percentageSoilMoisture: number,
     soilMoisture: number,
     temperature: number,
+    createdAt: number,
     updatedAt: number,
-    createdAt: string,
   } | null,
 };
 
@@ -682,8 +684,8 @@ export type GetSmartPlantDataRealTimeQuery = {
     percentageSoilMoisture: number,
     soilMoisture: number,
     temperature: number,
+    createdAt: number,
     updatedAt: number,
-    createdAt: string,
   } | null,
 };
 
@@ -707,8 +709,8 @@ export type ListSmartPlantDataRealTimesQuery = {
       percentageSoilMoisture: number,
       soilMoisture: number,
       temperature: number,
+      createdAt: number,
       updatedAt: number,
-      createdAt: string,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -836,8 +838,8 @@ export type OnCreateSmartPlantDataRealTimeSubscription = {
     percentageSoilMoisture: number,
     soilMoisture: number,
     temperature: number,
+    createdAt: number,
     updatedAt: number,
-    createdAt: string,
   } | null,
 };
 
@@ -855,8 +857,8 @@ export type OnUpdateSmartPlantDataRealTimeSubscription = {
     percentageSoilMoisture: number,
     soilMoisture: number,
     temperature: number,
+    createdAt: number,
     updatedAt: number,
-    createdAt: string,
   } | null,
 };
 
@@ -874,8 +876,8 @@ export type OnDeleteSmartPlantDataRealTimeSubscription = {
     percentageSoilMoisture: number,
     soilMoisture: number,
     temperature: number,
+    createdAt: number,
     updatedAt: number,
-    createdAt: string,
   } | null,
 };
 

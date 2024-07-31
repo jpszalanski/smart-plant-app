@@ -76,8 +76,8 @@ export const onCreateSmartPlantDataRealTime = /* GraphQL */ `subscription OnCrea
     percentageSoilMoisture
     soilMoisture
     temperature
-    updatedAt
     createdAt
+    updatedAt
     __typename
   }
 }
@@ -96,8 +96,8 @@ export const onUpdateSmartPlantDataRealTime = /* GraphQL */ `subscription OnUpda
     percentageSoilMoisture
     soilMoisture
     temperature
-    updatedAt
     createdAt
+    updatedAt
     __typename
   }
 }
@@ -116,8 +116,8 @@ export const onDeleteSmartPlantDataRealTime = /* GraphQL */ `subscription OnDele
     percentageSoilMoisture
     soilMoisture
     temperature
-    updatedAt
     createdAt
+    updatedAt
     __typename
   }
 }

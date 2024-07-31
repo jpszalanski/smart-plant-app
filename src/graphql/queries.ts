@@ -59,8 +59,8 @@ export const getSmartPlantDataRealTime = /* GraphQL */ `query GetSmartPlantDataR
     percentageSoilMoisture
     soilMoisture
     temperature
-    updatedAt
     createdAt
+    updatedAt
     __typename
   }
 }
@@ -90,8 +90,8 @@ export const listSmartPlantDataRealTimes = /* GraphQL */ `query ListSmartPlantDa
       percentageSoilMoisture
       soilMoisture
       temperature
-      updatedAt
       createdAt
+      updatedAt
       __typename
     }
     nextToken

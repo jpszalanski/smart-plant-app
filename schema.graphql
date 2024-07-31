@@ -51,10 +51,10 @@ type PlantIdentificationData {
 type Query {
   getPlantIdentificationData(id: ID!): PlantIdentificationData
   getSmartPlantData(id: ID!): SmartPlantData
-  getSmartPlantDataRealTime(id: ID!): SmartPlantDataRealTime
+  getSmartPlantDataRealTime(id: String!): SmartPlantDataRealTime
   listPlantIdentificationData(filter: ModelPlantIdentificationDataFilterInput, limit: Int, nextToken: String): ModelPlantIdentificationDataConnection
   listSmartPlantData(filter: ModelSmartPlantDataFilterInput, limit: Int, nextToken: String): ModelSmartPlantDataConnection
-  listSmartPlantDataRealTimes(filter: ModelSmartPlantDataRealTimeFilterInput, limit: Int, nextToken: String): ModelSmartPlantDataRealTimeConnection
+  listSmartPlantDataRealTimes(filter: ModelSmartPlantDataRealTimeFilterInput, id: String, limit: Int, nextToken: String, sortDirection: ModelSortDirection): ModelSmartPlantDataRealTimeConnection
 }
 
 type SmartPlantData {
@@ -72,8 +72,9 @@ type SmartPlantDataRealTime {
   createdAt: AWSTimestamp!
   deviceId: String!
   humidity: Float!
-  id: ID!
-  light: Float!
+  id: String!
+  lightLevel: Float!
+  percentageSoilMoisture: Float!
   soilMoisture: Float!
   temperature: Float!
   updatedAt: AWSTimestamp!
@@ -141,8 +142,9 @@ input CreateSmartPlantDataRealTimeInput {
   createdAt: AWSTimestamp!
   deviceId: String!
   humidity: Float!
-  id: ID
-  light: Float!
+  id: String
+  lightLevel: Float!
+  percentageSoilMoisture: Float!
   soilMoisture: Float!
   temperature: Float!
   updatedAt: AWSTimestamp!
@@ -157,7 +159,7 @@ input DeleteSmartPlantDataInput {
 }
 
 input DeleteSmartPlantDataRealTimeInput {
-  id: ID!
+  id: String!
 }
 
 input ModelBooleanInput {
@@ -288,9 +290,10 @@ input ModelSmartPlantDataRealTimeConditionInput {
   createdAt: ModelIntInput
   deviceId: ModelStringInput
   humidity: ModelFloatInput
-  light: ModelFloatInput
+  lightLevel: ModelFloatInput
   not: ModelSmartPlantDataRealTimeConditionInput
   or: [ModelSmartPlantDataRealTimeConditionInput]
+  percentageSoilMoisture: ModelFloatInput
   soilMoisture: ModelFloatInput
   temperature: ModelFloatInput
   updatedAt: ModelIntInput
@@ -301,10 +304,11 @@ input ModelSmartPlantDataRealTimeFilterInput {
   createdAt: ModelIntInput
   deviceId: ModelStringInput
   humidity: ModelFloatInput
-  id: ModelIDInput
-  light: ModelFloatInput
+  id: ModelStringInput
+  lightLevel: ModelFloatInput
   not: ModelSmartPlantDataRealTimeFilterInput
   or: [ModelSmartPlantDataRealTimeFilterInput]
+  percentageSoilMoisture: ModelFloatInput
   soilMoisture: ModelFloatInput
   temperature: ModelFloatInput
   updatedAt: ModelIntInput
@@ -407,9 +411,10 @@ input ModelSubscriptionSmartPlantDataRealTimeFilterInput {
   createdAt: ModelSubscriptionIntInput
   deviceId: ModelSubscriptionStringInput
   humidity: ModelSubscriptionFloatInput
-  id: ModelSubscriptionIDInput
-  light: ModelSubscriptionFloatInput
+  id: ModelSubscriptionStringInput
+  lightLevel: ModelSubscriptionFloatInput
   or: [ModelSubscriptionSmartPlantDataRealTimeFilterInput]
+  percentageSoilMoisture: ModelSubscriptionFloatInput
   soilMoisture: ModelSubscriptionFloatInput
   temperature: ModelSubscriptionFloatInput
   updatedAt: ModelSubscriptionIntInput
@@ -462,8 +467,9 @@ input UpdateSmartPlantDataRealTimeInput {
   createdAt: AWSTimestamp
   deviceId: String
   humidity: Float
-  id: ID!
-  light: Float
+  id: String!
+  lightLevel: Float
+  percentageSoilMoisture: Float
   soilMoisture: Float
   temperature: Float
   updatedAt: AWSTimestamp
