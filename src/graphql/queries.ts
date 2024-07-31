@@ -56,7 +56,6 @@ export const getSmartPlantDataRealTime = /* GraphQL */ `query GetSmartPlantDataR
     deviceId
     humidity
     lightLevel
-    percentageSoilMoisture
     soilMoisture
     temperature
     createdAt
@@ -87,7 +86,6 @@ export const listSmartPlantDataRealTimes = /* GraphQL */ `query ListSmartPlantDa
       deviceId
       humidity
       lightLevel
-      percentageSoilMoisture
       soilMoisture
       temperature
       createdAt

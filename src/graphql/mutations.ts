@@ -77,7 +77,6 @@ export const createSmartPlantDataRealTime = /* GraphQL */ `mutation CreateSmartP
     deviceId
     humidity
     lightLevel
-    percentageSoilMoisture
     soilMoisture
     temperature
     createdAt
@@ -98,7 +97,6 @@ export const updateSmartPlantDataRealTime = /* GraphQL */ `mutation UpdateSmartP
     deviceId
     humidity
     lightLevel
-    percentageSoilMoisture
     soilMoisture
     temperature
     createdAt
@@ -119,7 +117,6 @@ export const deleteSmartPlantDataRealTime = /* GraphQL */ `mutation DeleteSmartP
     deviceId
     humidity
     lightLevel
-    percentageSoilMoisture
     soilMoisture
     temperature
     createdAt

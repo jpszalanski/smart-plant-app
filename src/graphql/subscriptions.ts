@@ -73,7 +73,6 @@ export const onCreateSmartPlantDataRealTime = /* GraphQL */ `subscription OnCrea
     deviceId
     humidity
     lightLevel
-    percentageSoilMoisture
     soilMoisture
     temperature
     createdAt
@@ -93,7 +92,6 @@ export const onUpdateSmartPlantDataRealTime = /* GraphQL */ `subscription OnUpda
     deviceId
     humidity
     lightLevel
-    percentageSoilMoisture
     soilMoisture
     temperature
     createdAt
@@ -113,7 +111,6 @@ export const onDeleteSmartPlantDataRealTime = /* GraphQL */ `subscription OnDele
     deviceId
     humidity
     lightLevel
-    percentageSoilMoisture
     soilMoisture
     temperature
     createdAt
