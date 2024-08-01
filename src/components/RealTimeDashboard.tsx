@@ -72,71 +72,68 @@ const RealTimeDashboard = () => {
         <div className="dashboard-container">
             <Title level={2} className="dashboard-title">Smart Plant Dashboard</Title>
             <Row gutter={16}>
-                <Col span={6}>
+                <Col xs={24} sm={24} md={12} lg={6}>
                     <div className="gauge-card">
                         <Title level={4}>Temperatura</Title>
-                        <Gauge
+                        <Gauge 
                             id="temperature-gauge"
                             nrOfLevels={20}
-                            percent={latestData?.temperature ? latestData.temperature / 100 : 0}
+                            percent={latestData?.temperature ? latestData.temperature / 100 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value).toFixed(1)}°C`}
+                            formatTextValue={(value: number) => `${(value * 100).toFixed(1)}°C`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
                         </Text>
                     </div>
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={24} md={12} lg={6}>
                     <div className="gauge-card">
                         <Title level={4}>Umidade</Title>
                         <Gauge
                             id="humidity-gauge"
                             nrOfLevels={20}
-                            percent={latestData?.humidity ? latestData.humidity / 100 : 0}
+                            percent={latestData?.humidity ? latestData.humidity / 100 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value).toFixed(1)}%`}
+                            formatTextValue={(value: number) => `${(value * 100).toFixed(1)}%`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
                         </Text>
                     </div>
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={24} md={12} lg={6}>
                     <div className="gauge-card">
                         <Title level={4}>Luminosidade</Title>
                         <Gauge
                             id="light-gauge"
                             nrOfLevels={20}
-                            percent={latestData?.lightLevel ? latestData.lightLevel / 4096 : 0}
+                            percent={latestData?.lightLevel ? latestData.lightLevel / 4096 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value * 4096 / 100).toFixed(0)} lux`}
+                            formatTextValue={(value: number) => `${(value * 4096).toFixed(0)} lux`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
                         </Text>
                     </div>
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={24} md={12} lg={6}>
                     <div className="gauge-card">
                         <Title level={4}>Umidade do Solo</Title>
                         <Gauge
                             id="soil-moisture-gauge"
                             nrOfLevels={20}
-                            percent={latestData?.soilMoisture ? latestData.soilMoisture / 100 : 0}
+                            percent={latestData?.soilMoisture ? latestData.soilMoisture / 100 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value).toFixed(1)}%`}
+                            formatTextValue={(value: number) => `${(value * 100).toFixed(1)}%`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
                         </Text>
-                        <div className="control-buttons">
-                            <Title level={4}>Irrigacao</Title>
-                            <Space direction="horizontal" style={{ marginTop: '10px' }}>
-                                <ControlButton action={true} label=" Ativar " />
-                                <ControlButton action={false} label="Desligar" />
-                            </Space>
-                        </div>
+                        <Space direction="vertical" style={{ marginTop: '10px' }}>
+                            <ControlButton action={true} label="Acionar Irrigação" />
+                            <ControlButton action={false} label="Desligar Irrigação" />
+                        </Space>
                     </div>
                 </Col>
             </Row>
@@ -146,5 +143,4 @@ const RealTimeDashboard = () => {
         </div>
     );
 };
-
 export default RealTimeDashboard;
