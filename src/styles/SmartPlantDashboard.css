@@ -2,7 +2,7 @@
     margin-top: 32px;
 }
 
-.sensor-card {
+.sensor-card, .gauge-card {
     text-align: center;
     background-color: #fff;
     border: 1px solid #d9d9d9;
@@ -10,4 +10,46 @@
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .dashboard-charts {
+        margin-top: 24px;
+    }
+
+    .sensor-card, .gauge-card {
+        margin-bottom: 16px;
+        padding: 16px;
+    }
+
+    .ant-row {
+        flex-direction: column;
+    }
+
+    .ant-col {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-charts {
+        margin-top: 16px;
+    }
+
+    .sensor-card, .gauge-card {
+        margin-bottom: 12px;
+        padding: 12px;
+    }
+
+    .ant-row {
+        flex-direction: column;
+    }
+
+    .ant-col {
+        width: 100%;
+    }
 }
