@@ -80,7 +80,7 @@ const RealTimeDashboard = () => {
                             nrOfLevels={20}
                             percent={latestData?.temperature ? latestData.temperature / 100 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value * 100).toFixed(1)}°C`} 
+                            formatTextValue={(value: number) => `${(value ).toFixed(1)}°C`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
@@ -95,7 +95,7 @@ const RealTimeDashboard = () => {
                             nrOfLevels={20}
                             percent={latestData?.humidity ? latestData.humidity / 100 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value * 100).toFixed(1)}%`} 
+                            formatTextValue={(value: number) => `${(value ).toFixed(1)}%`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
@@ -110,7 +110,7 @@ const RealTimeDashboard = () => {
                             nrOfLevels={20}
                             percent={latestData?.lightLevel ? latestData.lightLevel / 4096 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value * 4096).toFixed(0)} lux`} 
+                            formatTextValue={(value: number) => `${(value * 4096/100).toFixed(0)} lux`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
@@ -125,7 +125,7 @@ const RealTimeDashboard = () => {
                             nrOfLevels={20}
                             percent={latestData?.soilMoisture ? latestData.soilMoisture / 100 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value * 100).toFixed(1)}%`} 
+                            formatTextValue={(value: number) => `${(value ).toFixed(1)}%`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
