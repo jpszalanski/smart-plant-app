@@ -80,7 +80,7 @@ const RealTimeDashboard = () => {
                             nrOfLevels={20}
                             percent={latestData?.temperature ? latestData.temperature / 100 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value ).toFixed(1)}°C`} 
+                            formatTextValue={(value: number) => `${(value).toFixed(1)}°C`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
@@ -95,7 +95,7 @@ const RealTimeDashboard = () => {
                             nrOfLevels={20}
                             percent={latestData?.humidity ? latestData.humidity / 100 : 0} 
                             textColor="#000000"
-                            formatTextValue={(value: number) => `${(value ).toFixed(1)}%`} 
+                            formatTextValue={(value: number) => `${(value).toFixed(1)}%`} 
                         />
                         <Text type="secondary">
                             {latestData?.updatedAt ? `Última atualização: ${new Date(latestData.updatedAt).toLocaleString()}` : 'Sem dados'}
