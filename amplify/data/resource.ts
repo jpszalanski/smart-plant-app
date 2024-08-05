@@ -34,6 +34,8 @@ const schema = a.schema({
     umidadeSoloMin: a.float().required(),
     umidadeSoloMax: a.float().required(),
     recomendacoes: a.string().required(),
+    ownerID: a.string().required(),
+    deviceID: a.string().required(),
     createdAt: a.timestamp().required(),
     updatedAt: a.timestamp().required(),
   }).authorization((allow) => [allow.authenticated('identityPool')]),
