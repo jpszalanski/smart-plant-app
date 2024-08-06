@@ -24,6 +24,7 @@ const schema = a.schema({
   }).authorization((allow) => [allow.guest(), allow.authenticated('identityPool')]),
 
   PlantIdentificationData: a.model({
+    id: a.string().required(),
     nome: a.string().required(),
     especie: a.string().required(),
     temperaturaMin: a.float().required(),
