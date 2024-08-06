@@ -1,6 +1,7 @@
 import { a, defineData, type ClientSchema } from '@aws-amplify/backend';
 
 const schema = a.schema({
+
   SmartPlantData: a.model({
     deviceId: a.string().required(),
     temperature: a.float().required(),
