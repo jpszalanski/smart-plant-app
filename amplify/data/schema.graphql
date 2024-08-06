@@ -35,7 +35,7 @@ type PlantIdentificationData {
   createdAt: AWSTimestamp!
   deviceID: String!
   especie: String!
-  id: String!
+  id: ID!
   iluminanciaMax: Float!
   iluminanciaMin: Float!
   nome: String!
@@ -74,7 +74,7 @@ type SmartPlantDataRealTime {
   createdAt: AWSTimestamp!
   deviceId: String!
   humidity: Float!
-  id: String!
+  id: ID!
   lightLevel: Float!
   soilMoisture: Float!
   temperature: Float!
